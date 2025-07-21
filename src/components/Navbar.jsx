@@ -39,14 +39,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-16 h-14 mr-2 flex items-center justify-center rounded-full bg-white">
+            <div className="w-16 h-14 md:mr-2 flex items-center justify-center rounded-full bg-white">
               <img
                 src="/yatrasymbol.svg"
                 alt="Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className=" md:text-xl lg:text-xl font-bold gradient-text">
+            <span className="md:text-xl font-bold gradient-text">
               Mamta Foundation Seva Samiti
             </span>
           </Link>

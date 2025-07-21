@@ -8,6 +8,7 @@ import { useToast } from "@/components/ui/use-toast";
 import HeroSlider from "../components/home/HeroSlider";
 import AboutUs from "../components/home/AboutUs";
 import Causes from "../components/home/Causes";
+import ReviewsSection from "../components/home/Reviews";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
       </section>
       <AboutUs />
       <Causes />
+      <ReviewsSection />
     </>
   );
 };
