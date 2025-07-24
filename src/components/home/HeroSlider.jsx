@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const yatraSlides = [
   {
@@ -67,7 +68,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className=" mt-20 p-4 relative w-full min-h-screen bg-gradient-to-br from-orange-50 to-amber-50 overflow-hidden">
+    <section className=" mt-20 p-4 relative w-full min-h-screen bg-gradient-to-br from-orange-100 to-amber-200 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100&text=Pattern')] bg-repeat"></div>
@@ -103,7 +104,7 @@ export default function HeroSlider() {
                 <div className="order-2 lg:order-2 space-y-6 text-center lg:text-left">
                   <div className="space-y-4">
                     <h1 className="text-2xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                      <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+                      <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
                         {slide.title}
                       </span>
                     </h1>
@@ -114,9 +115,10 @@ export default function HeroSlider() {
 
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                    className="bg-gradient-to-r from-red-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                   >
-                    Explore Yatra
+                    <Link to="/yatras">Explore Yatras</Link>
+                    
                   </Button>
                 </div>
               </div>

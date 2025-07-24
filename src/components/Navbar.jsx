@@ -32,7 +32,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "navbar-blur shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-[#2E2E2E] navbar-blur shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="md:text-xl font-bold gradient-text">
+            <span className="md:text-2xl font-bold text-red-600">
               Mamta Foundation Seva Samiti
             </span>
           </Link>

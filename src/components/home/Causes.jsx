@@ -2,7 +2,7 @@ import { Heart, Users, Stethoscope, BookOpen, Utensils } from "lucide-react";
 
 const Causes = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-rose-200 via-orange-200 to-amber-200 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-32 h-32 bg-rose-200/20 rounded-full blur-2xl"></div>

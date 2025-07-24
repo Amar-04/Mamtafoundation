@@ -1,32 +1,31 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -37,14 +36,16 @@ const Contact = () => {
     }
 
     // Store in localStorage for now
-    const contacts = JSON.parse(localStorage.getItem('divine-yatra-contacts') || '[]');
+    const contacts = JSON.parse(
+      localStorage.getItem("divine-yatra-contacts") || "[]"
+    );
     const newContact = {
       ...formData,
       id: Date.now(),
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
     contacts.push(newContact);
-    localStorage.setItem('divine-yatra-contacts', JSON.stringify(contacts));
+    localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
 
     toast({
       title: "Message sent successfully! 🙏",
@@ -54,11 +55,11 @@ const Contact = () => {
 
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
     });
   };
 
@@ -67,26 +68,26 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       details: ["+91 98765 43210", "+91 87654 32109"],
-      description: "Call us for immediate assistance"
+      description: "Call us for immediate assistance",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["info@divineyatra.com", "bookings@divineyatra.com"],
-      description: "Send us your queries anytime"
+      description: "Send us your queries anytime",
     },
     {
       icon: MapPin,
       title: "Address",
       details: ["123 Temple Street", "Sacred City, India 110001"],
-      description: "Visit our office for personal consultation"
+      description: "Visit our office for personal consultation",
     },
     {
       icon: Clock,
       title: "Office Hours",
       details: ["Mon - Sat: 9:00 AM - 7:00 PM", "Sun: 10:00 AM - 5:00 PM"],
-      description: "We're here to help during business hours"
-    }
+      description: "We're here to help during business hours",
+    },
   ];
 
   const subjects = [
@@ -95,14 +96,17 @@ const Contact = () => {
     "Volunteer Opportunity",
     "General Information",
     "Feedback & Suggestions",
-    "Other"
+    "Other",
   ];
 
   return (
     <>
       <Helmet>
         <title>Contact Us - Get in Touch | Divine Yatra</title>
-        <meta name="description" content="Contact Divine Yatra for yatra bookings, charity inquiries, or general information. We're here to help you plan your spiritual journey." />
+        <meta
+          name="description"
+          content="Contact Divine Yatra for yatra bookings, charity inquiries, or general information. We're here to help you plan your spiritual journey."
+        />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-[#FFF6D8] to-white pt-20">
@@ -119,8 +123,9 @@ const Contact = () => {
                 Get in Touch
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Have questions about our yatras or want to contribute to our charitable causes? 
-                We're here to help you on your spiritual journey.
+                Have questions about our yatras or want to contribute to our
+                charitable causes? We're here to help you on your spiritual
+                journey.
               </p>
             </motion.div>
 
@@ -134,13 +139,18 @@ const Contact = () => {
               >
                 <div className="flex items-center mb-6">
                   <MessageCircle className="w-6 h-6 text-[#E30613] mr-3" />
-                  <h2 className="text-2xl font-bold text-[#1E2E73]">Send us a Message</h2>
+                  <h2 className="text-2xl font-bold text-[#1E2E73]">
+                    Send us a Message
+                  </h2>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-[#1E2E73] mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-[#1E2E73] mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -155,7 +165,10 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-[#1E2E73] mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-[#1E2E73] mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -173,7 +186,10 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-[#1E2E73] mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-[#1E2E73] mb-2"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -187,7 +203,10 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-[#1E2E73] mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-[#1E2E73] mb-2"
+                      >
                         Subject
                       </label>
                       <select
@@ -208,7 +227,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#1E2E73] mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-[#1E2E73] mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -241,7 +263,9 @@ const Contact = () => {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-2xl font-bold text-[#1E2E73] mb-6">Contact Information</h2>
+                  <h2 className="text-2xl font-bold text-[#1E2E73] mb-6">
+                    Contact Information
+                  </h2>
                   <div className="space-y-6">
                     {contactInfo.map((info, index) => (
                       <motion.div
@@ -260,7 +284,10 @@ const Contact = () => {
                               {info.title}
                             </h3>
                             {info.details.map((detail, idx) => (
-                              <p key={idx} className="text-gray-700 font-medium">
+                              <p
+                                key={idx}
+                                className="text-gray-700 font-medium"
+                              >
                                 {detail}
                               </p>
                             ))}
@@ -281,11 +308,15 @@ const Contact = () => {
                   transition={{ duration: 0.6, delay: 1 }}
                   className="bg-white rounded-xl p-6 shadow-lg"
                 >
-                  <h3 className="text-lg font-semibold text-[#1E2E73] mb-4">Find Us</h3>
+                  <h3 className="text-lg font-semibold text-[#1E2E73] mb-4">
+                    Find Us
+                  </h3>
                   <div className="h-64 bg-gradient-to-br from-[#7DC3E8]/20 to-[#F4C402]/20 rounded-lg flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-[#1E2E73] mx-auto mb-3" />
-                      <p className="text-[#1E2E73] font-medium">Interactive Map</p>
+                      <p className="text-[#1E2E73] font-medium">
+                        Interactive Map
+                      </p>
                       <p className="text-sm text-gray-600">
                         123 Temple Street, Sacred City, India
                       </p>
@@ -295,54 +326,32 @@ const Contact = () => {
               </motion.div>
             </div>
 
-            {/* FAQ Section */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="mt-20"
+              className="text-center mt-16 p-8 bg-gradient-to-r from-[#1E2E73] to-[#7A1C1C] rounded-2xl text-white"
             >
-              <h2 className="text-3xl font-bold text-center gradient-text mb-12">
-                Frequently Asked Questions
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Ready to Create Your Own Divine Story?
               </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                  {
-                    question: "How do I book a yatra?",
-                    answer: "You can book a yatra by browsing our Yatras page, selecting your preferred journey, and clicking the 'Book Now' button. Our team will contact you within 24 hours to confirm details."
-                  },
-                  {
-                    question: "What is included in the yatra package?",
-                    answer: "Our packages typically include accommodation, meals, transportation, guided tours, and all necessary permits. Specific inclusions vary by yatra and are detailed on each tour page."
-                  },
-                  {
-                    question: "How can I contribute to charity causes?",
-                    answer: "Visit our Causes page to see all active charitable initiatives. You can donate online, volunteer your time, or sponsor specific projects like free yatras for underprivileged devotees."
-                  },
-                  {
-                    question: "What safety measures do you follow?",
-                    answer: "We prioritize pilgrim safety with experienced guides, first aid facilities, emergency contacts, and comprehensive insurance coverage. All our yatras follow strict safety protocols."
-                  }
-                ].map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-white rounded-xl p-6 shadow-lg"
-                  >
-                    <h3 className="text-lg font-semibold text-[#1E2E73] mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
+              <p className="text-lg mb-6 opacity-90">
+                Join thousands of satisfied pilgrims and embark on your
+                spiritual journey today.
+              </p>
+              <Button
+                onClick={() =>
+                  toast({
+                    title:
+                      "🚧 Booking feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
+                    duration: 3000,
+                  })
+                }
+                className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full"
+              >
+                Book Your Yatra Now
+              </Button>
             </motion.div>
           </div>
         </section>

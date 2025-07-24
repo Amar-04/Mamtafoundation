@@ -15,7 +15,7 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center hero-pattern overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFF6D8]/90 to-white/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-amber-200"></div>
 
         <HeroSlider />
 

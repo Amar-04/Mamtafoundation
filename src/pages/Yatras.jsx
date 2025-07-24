@@ -1,126 +1,97 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
-import { Calendar, MapPin, Users, IndianRupee, Filter } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  IndianRupee,
+  Filter,
+  Download,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const Yatras = () => {
-  const { toast } = useToast();
-  const [selectedFilter, setSelectedFilter] = useState('all');
-
-  const handleBookNow = (yatraName) => {
-    toast({
-      title: "🚧 Booking feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      duration: 3000,
-    });
-  };
-
-  const handleFilterChange = (filter) => {
-    setSelectedFilter(filter);
-    toast({
-      title: "🚧 Filter feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      duration: 3000,
-    });
-  };
-
   const yatras = [
     {
       id: 1,
       name: "Char Dham Yatra",
       location: "Uttarakhand",
       dates: "May 15 - May 25, 2024",
-      price: "₹45,000",
       duration: "10 Days",
-      participants: "25 Pilgrims",
-      status: "upcoming",
-      region: "north",
-      description: "Sacred journey to the four holy shrines of Yamunotri, Gangotri, Kedarnath, and Badrinath.",
-      image: "Sacred mountain temple with snow-capped peaks in background"
+      description:
+        "Sacred journey to the four holy shrines of Yamunotri, Gangotri, Kedarnath, and Badrinath.",
+      image: "Sacred mountain temple with snow-capped peaks in background",
+      pdf: "/admissionletter.pdf",
     },
     {
       id: 2,
       name: "Kashi Vishwanath Darshan",
       location: "Varanasi, Uttar Pradesh",
       dates: "March 20 - March 23, 2024",
-      price: "₹18,000",
       duration: "4 Days",
-      participants: "40 Pilgrims",
-      status: "ongoing",
-      region: "north",
-      description: "Experience the spiritual energy of the holy city of Varanasi and Lord Shiva's sacred temple.",
-      image: "Ancient temple on the banks of river Ganges with evening aarti"
+      description:
+        "Experience the spiritual energy of the holy city of Varanasi and Lord Shiva's sacred temple.",
+      image: "Ancient temple on the banks of river Ganges with evening aarti",
+      pdf: "/admissionletter.pdf",
     },
     {
       id: 3,
       name: "Tirupati Balaji Darshan",
       location: "Andhra Pradesh",
       dates: "April 10 - April 13, 2024",
-      price: "₹22,000",
       duration: "4 Days",
-      participants: "35 Pilgrims",
-      status: "upcoming",
-      region: "south",
-      description: "Seek blessings at the richest temple in the world, dedicated to Lord Venkateswara.",
-      image: "Magnificent South Indian temple with golden gopuram"
+      description:
+        "Seek blessings at the richest temple in the world, dedicated to Lord Venkateswara.",
+      image: "Magnificent South Indian temple with golden gopuram",
+      pdf: "/admissionletter.pdf",
     },
     {
       id: 4,
       name: "Dwarka & Somnath Yatra",
       location: "Gujarat",
       dates: "June 5 - June 10, 2024",
-      price: "₹28,000",
       duration: "6 Days",
-      participants: "30 Pilgrims",
-      status: "upcoming",
-      region: "west",
-      description: "Visit the kingdom of Lord Krishna and one of the twelve Jyotirlingas.",
-      image: "Coastal temple with Arabian Sea waves in the background"
+      description:
+        "Visit the kingdom of Lord Krishna and one of the twelve Jyotirlingas.",
+      image: "Coastal temple with Arabian Sea waves in the background",
+      pdf: "/admissionletter.pdf",
     },
     {
       id: 5,
       name: "Jagannath Puri Yatra",
       location: "Odisha",
       dates: "July 15 - July 18, 2024",
-      price: "₹20,000",
       duration: "4 Days",
-      participants: "45 Pilgrims",
-      status: "upcoming",
-      region: "east",
-      description: "Witness the grand Rath Yatra and seek blessings of Lord Jagannath.",
-      image: "Colorful temple chariot festival with thousands of devotees"
+      description:
+        "Witness the grand Rath Yatra and seek blessings of Lord Jagannath.",
+      image: "Colorful temple chariot festival with thousands of devotees",
+      pdf: "/admissionletter.pdf",
     },
     {
       id: 6,
       name: "Amarnath Cave Yatra",
       location: "Jammu & Kashmir",
       dates: "August 1 - August 8, 2024",
-      price: "₹35,000",
       duration: "8 Days",
-      participants: "20 Pilgrims",
-      status: "upcoming",
-      region: "north",
-      description: "Challenging trek to the holy cave shrine of Lord Shiva in the Himalayas.",
-      image: "Snow-covered mountain cave with natural ice lingam formation"
-    }
-  ];
-
-  const filters = [
-    { id: 'all', label: 'All Yatras' },
-    { id: 'upcoming', label: 'Upcoming' },
-    { id: 'ongoing', label: 'Ongoing' },
-    { id: 'north', label: 'North India' },
-    { id: 'south', label: 'South India' },
-    { id: 'east', label: 'East India' },
-    { id: 'west', label: 'West India' }
+      description:
+        "Challenging trek to the holy cave shrine of Lord Shiva in the Himalayas.",
+      image: "Snow-covered mountain cave with natural ice lingam formation",
+      pdf: "/admissionletter.pdf",
+    },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Sacred Yatras - Temple Tours & Spiritual Journeys | Divine Yatra</title>
-        <meta name="description" content="Explore our upcoming and ongoing yatras to sacred temples across India. Book your spiritual journey with expert guidance and group travel." />
+        <title>
+          Sacred Yatras - Temple Tours & Spiritual Journeys | Divine Yatra
+        </title>
+        <meta
+          name="description"
+          content="Explore our upcoming and ongoing yatras to sacred temples across India. Book your spiritual journey with expert guidance and group travel."
+        />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-[#FFF6D8] to-white pt-20">
@@ -137,36 +108,10 @@ const Yatras = () => {
                 Sacred Yatras
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Embark on transformative spiritual journeys to India's most sacred temples and holy sites. 
-                Join fellow pilgrims in experiencing divine blessings and inner peace.
+                Embark on transformative spiritual journeys to India's most
+                sacred temples and holy sites. Join fellow pilgrims in
+                experiencing divine blessings and inner peace.
               </p>
-            </motion.div>
-
-            {/* Filters */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-3 mb-12"
-            >
-              <div className="flex items-center space-x-2 mb-4">
-                <Filter className="w-5 h-5 text-[#1E2E73]" />
-                <span className="text-[#1E2E73] font-medium">Filter by:</span>
-              </div>
-              {filters.map((filter) => (
-                <Button
-                  key={filter.id}
-                  onClick={() => handleFilterChange(filter.id)}
-                  variant={selectedFilter === filter.id ? "default" : "outline"}
-                  className={`rounded-full ${
-                    selectedFilter === filter.id
-                      ? 'bg-[#E30613] hover:bg-[#E30613]/90 text-white'
-                      : 'border-[#1E2E73] text-[#1E2E73] hover:bg-[#1E2E73] hover:text-white'
-                  }`}
-                >
-                  {filter.label}
-                </Button>
-              ))}
             </motion.div>
 
             {/* Yatras Grid */}
@@ -181,17 +126,20 @@ const Yatras = () => {
                 >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img  
+                    <img
                       className="w-full h-full object-cover"
                       alt={`${yatra.name} temple tour`}
-                     src="https://images.unsplash.com/photo-1688053010570-8db731d66948" />
+                      src="https://images.unsplash.com/photo-1688053010570-8db731d66948"
+                    />
                     <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        yatra.status === 'upcoming' 
-                          ? 'bg-[#F4C402] text-[#1E2E73]' 
-                          : 'bg-[#E30613] text-white'
-                      }`}>
-                        {yatra.status === 'upcoming' ? 'Upcoming' : 'Ongoing'}
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          yatra.status === "upcoming"
+                            ? "bg-[#F4C402] text-[#1E2E73]"
+                            : "bg-[#E30613] text-white"
+                        }`}
+                      >
+                        {yatra.status === "upcoming" ? "Upcoming" : "Ongoing"}
                       </span>
                     </div>
                   </div>
@@ -215,25 +163,20 @@ const Yatras = () => {
                         <Calendar className="w-4 h-4 mr-2 text-[#7DC3E8]" />
                         {yatra.dates} • {yatra.duration}
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Users className="w-4 h-4 mr-2 text-[#7DC3E8]" />
-                        {yatra.participants}
-                      </div>
                     </div>
 
                     {/* Price and Book Button */}
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <IndianRupee className="w-5 h-5 text-[#7A1C1C]" />
-                        <span className="text-2xl font-bold text-[#7A1C1C]">
-                          {yatra.price.replace('₹', '')}
-                        </span>
-                        <span className="text-sm text-gray-500 ml-1">per person</span>
-                      </div>
-                      <Button
-                        onClick={() => handleBookNow(yatra.name)}
-                        className="bg-[#E30613] hover:bg-[#E30613]/90 text-white rounded-full px-6"
+                      <a
+                        href={yatra.pdf} // Replace with your actual file path
+                        download
+                        className="inline-flex items-center gap-2 bg-orange-500 text-white font-semibold px-3 py-1
+                         rounded-xl shadow hover:bg-orange-600 transition"
                       >
+                        <Download className="w-5 h-5" />
+                        View Details (PDF)
+                      </a>
+                      <Button className="bg-[#E30613] hover:bg-[#E30613]/90 text-white rounded-full px-6">
                         Book Now
                       </Button>
                     </div>
@@ -241,31 +184,6 @@ const Yatras = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Call to Action */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mt-16 p-8 bg-gradient-to-r from-[#1E2E73] to-[#7A1C1C] rounded-2xl text-white"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Can't Find Your Desired Yatra?
-              </h2>
-              <p className="text-lg mb-6 opacity-90">
-                Contact us to customize a spiritual journey according to your preferences and schedule.
-              </p>
-              <Button
-                onClick={() => toast({
-                  title: "🚧 Custom yatra feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-                  duration: 3000,
-                })}
-                className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full"
-              >
-                Plan Custom Yatra
-              </Button>
-            </motion.div>
           </div>
         </section>
       </div>

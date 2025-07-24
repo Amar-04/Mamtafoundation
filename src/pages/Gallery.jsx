@@ -1,314 +1,416 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
+import { X, Play, Image as ImageIcon, Video } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { useState, useEffect } from "react";
+import { Calendar, Filter } from "lucide-react";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet';
-import { X, Play, Image as ImageIcon, Video } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+const galleryData = [
+  {
+    year: 2024,
+    photos: [
+      {
+        id: 1,
+        src: "/placeholder.svg?height=300&width=400&text=Char+Dham+2024",
+        alt: "Char Dham Yatra 2024",
+        title: "Kedarnath Temple Visit",
+      },
+      {
+        id: 2,
+        src: "/placeholder.svg?height=300&width=400&text=Kailash+2024",
+        alt: "Kailash Mansarovar 2024",
+        title: "Mount Kailash Darshan",
+      },
+      {
+        id: 3,
+        src: "/placeholder.svg?height=300&width=400&text=Amarnath+2024",
+        alt: "Amarnath Yatra 2024",
+        title: "Sacred Ice Lingam",
+      },
+      {
+        id: 4,
+        src: "/placeholder.svg?height=300&width=400&text=Vaishno+Devi+2024",
+        alt: "Vaishno Devi 2024",
+        title: "Mata Vaishno Devi Shrine",
+      },
+      {
+        id: 5,
+        src: "/placeholder.svg?height=300&width=400&text=Badrinath+2024",
+        alt: "Badrinath 2024",
+        title: "Badrinath Temple",
+      },
+      {
+        id: 6,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+    ],
+    videos: [
+      {
+        id: 1,
+        videoId: "dQw4w9WgXcQ",
+        title: "Char Dham Yatra 2024 Highlights",
+        description: "Complete journey to the four sacred shrines",
+      },
+      {
+        id: 2,
+        videoId: "9bZkp7q19f0",
+        title: "Kailash Mansarovar Experience",
+        description: "Spiritual journey to the abode of Lord Shiva",
+      },
+      {
+        id: 3,
+        videoId: "ScMzIvxBSi4",
+        title: "Devotee Testimonials 2024",
+        description: "Heartfelt experiences from our pilgrims",
+      },
+    ],
+  },
+  {
+    year: 2023,
+    photos: [
+      {
+        id: 7,
+        src: "/placeholder.svg?height=300&width=400&text=Tirupati+2023",
+        alt: "Tirupati 2023",
+        title: "Lord Venkateswara Temple",
+      },
+      {
+        id: 8,
+        src: "/placeholder.svg?height=300&width=400&text=Shirdi+2023",
+        alt: "Shirdi 2023",
+        title: "Sai Baba Samadhi",
+      },
+      {
+        id: 9,
+        src: "/placeholder.svg?height=300&width=400&text=Dwarka+2023",
+        alt: "Dwarka 2023",
+        title: "Dwarkadhish Temple",
+      },
+      {
+        id: 10,
+        src: "/placeholder.svg?height=300&width=400&text=Somnath+2023",
+        alt: "Somnath 2023",
+        title: "Somnath Jyotirlinga",
+      },
+      {
+        id: 11,
+        src: "/placeholder.svg?height=300&width=400&text=Rameshwaram+2023",
+        alt: "Rameshwaram 2023",
+        title: "Ramanathaswamy Temple",
+      },
+      {
+        id: 12,
+        src: "/placeholder.svg?height=300&width=400&text=Kanyakumari+2023",
+        alt: "Kanyakumari 2023",
+        title: "Southernmost Tip of India",
+      },
+    ],
+    videos: [
+      {
+        id: 4,
+        videoId: "jNQXAC9IVRw",
+        title: "South India Temple Tour 2023",
+        description: "Sacred temples of Tamil Nadu and Karnataka",
+      },
+      {
+        id: 5,
+        videoId: "dQw4w9WgXcQ",
+        title: "Gujarat Pilgrimage 2023",
+        description: "Dwarka and Somnath spiritual journey",
+      },
+      {
+        id: 6,
+        videoId: "9bZkp7q19f0",
+        title: "Devotional Moments 2023",
+        description: "Beautiful moments from our 2023 yatras",
+      },
+    ],
+  },
+  {
+    year: 2022,
+    photos: [
+      {
+        id: 13,
+        src: "/placeholder.svg?height=300&width=400&text=Haridwar+2022",
+        alt: "Haridwar 2022",
+        title: "Ganga Aarti at Har Ki Pauri",
+      },
+      {
+        id: 14,
+        src: "/placeholder.svg?height=300&width=400&text=Rishikesh+2022",
+        alt: "Rishikesh 2022",
+        title: "Yoga Capital of the World",
+      },
+      {
+        id: 15,
+        src: "/placeholder.svg?height=300&width=400&text=Mathura+2022",
+        alt: "Mathura 2022",
+        title: "Krishna Janmabhoomi",
+      },
+      {
+        id: 16,
+        src: "/placeholder.svg?height=300&width=400&text=Vrindavan+2022",
+        alt: "Vrindavan 2022",
+        title: "Banke Bihari Temple",
+      },
+      {
+        id: 17,
+        src: "/placeholder.svg?height=300&width=400&text=Ayodhya+2022",
+        alt: "Ayodhya 2022",
+        title: "Ram Janmabhoomi",
+      },
+      {
+        id: 18,
+        src: "/placeholder.svg?height=300&width=400&text=Varanasi+2022",
+        alt: "Varanasi 2022",
+        title: "Kashi Vishwanath Temple",
+      },
+    ],
+    videos: [
+      {
+        id: 7,
+        videoId: "ScMzIvxBSi4",
+        title: "Spiritual Cities of India 2022",
+        description: "Journey through Haridwar, Rishikesh, and Varanasi",
+      },
+      {
+        id: 8,
+        videoId: "jNQXAC9IVRw",
+        title: "Krishna Circuit 2022",
+        description: "Mathura and Vrindavan pilgrimage",
+      },
+      {
+        id: 9,
+        videoId: "dQw4w9WgXcQ",
+        title: "Ganga Aarti Moments",
+        description: "Divine evening prayers by the holy river",
+      },
+    ],
+  },
+  {
+    year: 2021,
+    photos: [
+      {
+        id: 19,
+        src: "/placeholder.svg?height=300&width=400&text=Golden+Temple+2021",
+        alt: "Golden Temple 2021",
+        title: "Harmandir Sahib",
+      },
+      {
+        id: 20,
+        src: "/placeholder.svg?height=300&width=400&text=Ajmer+2021",
+        alt: "Ajmer Sharif 2021",
+        title: "Ajmer Sharif Dargah",
+      },
+      {
+        id: 21,
+        src: "/placeholder.svg?height=300&width=400&text=Pushkar+2021",
+        alt: "Pushkar 2021",
+        title: "Brahma Temple",
+      },
+      {
+        id: 22,
+        src: "/placeholder.svg?height=300&width=400&text=Mount+Abu+2021",
+        alt: "Mount Abu 2021",
+        title: "Dilwara Jain Temples",
+      },
+      {
+        id: 23,
+        src: "/placeholder.svg?height=300&width=400&text=Nathdwara+2021",
+        alt: "Nathdwara 2021",
+        title: "Shrinathji Temple",
+      },
+      {
+        id: 24,
+        src: "/placeholder.svg?height=300&width=400&text=Udaipur+2021",
+        alt: "Udaipur 2021",
+        title: "City of Lakes",
+      },
+    ],
+    videos: [
+      {
+        id: 10,
+        videoId: "9bZkp7q19f0",
+        title: "Rajasthan Spiritual Tour 2021",
+        description: "Sacred sites across the royal state",
+      },
+      {
+        id: 11,
+        videoId: "ScMzIvxBSi4",
+        title: "Golden Temple Experience",
+        description: "Peaceful moments at the holiest Sikh shrine",
+      },
+      {
+        id: 12,
+        videoId: "jNQXAC9IVRw",
+        title: "Desert Pilgrimage 2021",
+        description: "Spiritual journey through Rajasthan",
+      },
+    ],
+  },
+];
 
-const Gallery = () => {
-  const { toast } = useToast();
-  const [selectedMedia, setSelectedMedia] = useState(null);
-  const [filter, setFilter] = useState('all');
+export default function Gallery() {
+  const [selectedYear, setSelectedYear] = useState(2024);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentData, setCurrentData] = useState(galleryData[0]);
 
-  const handleMediaClick = (media) => {
-    if (media.type === 'video') {
-      toast({
-        title: "🚧 Video playback feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-        duration: 3000,
-      });
-    } else {
-      setSelectedMedia(media);
+  const currentYear = new Date().getFullYear();
+  const years = Array.from(
+    { length: currentYear - 2020 },
+    (_, i) => currentYear - i
+  );
+
+  useEffect(() => {
+    const yearData = galleryData.find((data) => data.year === selectedYear);
+    if (yearData) {
+      setCurrentData(yearData);
     }
+  }, [selectedYear]);
+
+  const handleYearChange = (year) => {
+    if (year === selectedYear) return;
+
+    setIsLoading(true);
+    setSelectedYear(year);
+
+    // Simulate loading time
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
   };
 
-  const galleryItems = [
-    {
-      id: 1,
-      type: 'image',
-      title: 'Char Dham Yatra 2023',
-      category: 'yatra',
-      description: 'Pilgrims at Kedarnath Temple during the sacred Char Dham journey',
-      image: 'Group of pilgrims in white clothes at mountain temple with snow peaks'
-    },
-    {
-      id: 2,
-      type: 'video',
-      title: 'Ganga Aarti at Varanasi',
-      category: 'ceremony',
-      description: 'Evening prayer ceremony at the holy ghats of Varanasi',
-      thumbnail: 'Evening aarti ceremony with oil lamps at river Ganges ghats'
-    },
-    {
-      id: 3,
-      type: 'image',
-      title: 'Charity Food Distribution',
-      category: 'charity',
-      description: 'Volunteers serving free meals to underprivileged communities',
-      image: 'Volunteers in orange clothes serving food to children and families'
-    },
-    {
-      id: 4,
-      type: 'image',
-      title: 'Tirupati Balaji Darshan',
-      category: 'yatra',
-      description: 'Devotees seeking blessings at the sacred Tirupati temple',
-      image: 'Magnificent South Indian temple with golden dome and devotees'
-    },
-    {
-      id: 5,
-      type: 'video',
-      title: 'Temple Construction Project',
-      category: 'charity',
-      description: 'Building a new temple for the local community',
-      thumbnail: 'Construction workers building traditional temple architecture'
-    },
-    {
-      id: 6,
-      type: 'image',
-      title: 'Dwarka Temple Visit',
-      category: 'yatra',
-      description: 'Pilgrims at the sacred Dwarkadhish temple in Gujarat',
-      image: 'Ancient temple by the sea with colorful flags and devotees'
-    },
-    {
-      id: 7,
-      type: 'image',
-      title: 'Medical Camp',
-      category: 'charity',
-      description: 'Free medical checkup camp organized in rural areas',
-      image: 'Doctors examining patients in outdoor medical camp setting'
-    },
-    {
-      id: 8,
-      type: 'video',
-      title: 'Jagannath Rath Yatra',
-      category: 'ceremony',
-      description: 'The grand chariot festival of Lord Jagannath in Puri',
-      thumbnail: 'Massive temple chariot with thousands of devotees pulling ropes'
-    },
-    {
-      id: 9,
-      type: 'image',
-      title: 'Education Initiative',
-      category: 'charity',
-      description: 'Teaching underprivileged children in rural schools',
-      image: 'Teacher with children in outdoor classroom under tree'
-    },
-    {
-      id: 10,
-      type: 'image',
-      title: 'Amarnath Cave Yatra',
-      category: 'yatra',
-      description: 'Trekking to the holy Amarnath cave in Kashmir',
-      image: 'Pilgrims trekking on mountain path with snow-capped peaks'
-    },
-    {
-      id: 11,
-      type: 'video',
-      title: 'Community Kitchen',
-      category: 'charity',
-      description: 'Preparing meals for thousands of devotees daily',
-      thumbnail: 'Large community kitchen with volunteers cooking in big pots'
-    },
-    {
-      id: 12,
-      type: 'image',
-      title: 'Somnath Temple',
-      category: 'yatra',
-      description: 'Sunset view of the magnificent Somnath Jyotirlinga',
-      image: 'Temple silhouette against orange sunset sky by the ocean'
-    }
-  ];
-
-  const categories = [
-    { id: 'all', label: 'All Media', icon: ImageIcon },
-    { id: 'yatra', label: 'Yatras', icon: ImageIcon },
-    { id: 'charity', label: 'Charity Work', icon: ImageIcon },
-    { id: 'ceremony', label: 'Ceremonies', icon: Video }
-  ];
-
-  const filteredItems = filter === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === filter);
-
   return (
-    <>
-      <Helmet>
-        <title>Gallery - Sacred Moments & Charity Work | Divine Yatra</title>
-        <meta name="description" content="Explore our gallery of sacred yatra moments, temple visits, charity work, and spiritual ceremonies. Witness the divine journey through images and videos." />
-      </Helmet>
-
-      <div className="min-h-screen bg-gradient-to-br from-[#FFF6D8] to-white pt-20">
-        {/* Header Section */}
-        <section className="section-padding">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-12"
-            >
-              <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                Sacred Moments Gallery
-              </h1>
-              <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Witness the divine journey through our collection of sacred yatra moments, 
-                temple visits, charity initiatives, and spiritual ceremonies.
-              </p>
-            </motion.div>
-
-            {/* Category Filters */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-4 mb-12"
-            >
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  onClick={() => setFilter(category.id)}
-                  variant={filter === category.id ? "default" : "outline"}
-                  className={`rounded-full flex items-center space-x-2 ${
-                    filter === category.id
-                      ? 'bg-[#E30613] hover:bg-[#E30613]/90 text-white'
-                      : 'border-[#1E2E73] text-[#1E2E73] hover:bg-[#1E2E73] hover:text-white'
-                  }`}
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 pt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        {/* Year Filter Section */}
+        <div className="text-center mb-8 lg:mb-12">
+          <div className="flex items-center justify-center space-x-3">
+            <Filter className="h-5 w-5 text-gray-500" />
+            <div className="flex flex-wrap gap-2 justify-center">
+              {years.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => handleYearChange(year)}
+                  disabled={isLoading}
+                  className={`px-5 py-1 rounded-full font-semibold transition-all duration-200 ${
+                    selectedYear === year
+                      ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg transform scale-105"
+                      : "bg-white text-gray-700 hover:bg-orange-50 border border-orange-200 hover:border-orange-300"
+                  } disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
-                  <category.icon className="w-4 h-4" />
-                  <span>{category.label}</span>
-                </Button>
+                  {year}
+                </button>
               ))}
-            </motion.div>
+            </div>
+          </div>
+        </div>
 
-            {/* Gallery Grid */}
-            <motion.div 
-              layout
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-            >
-              <AnimatePresence>
-                {filteredItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="relative group cursor-pointer"
-                    onClick={() => handleMediaClick(item)}
-                  >
-                    <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg card-hover">
-                      {/* Media Container */}
-                      <div className="relative h-64 overflow-hidden">
-                        <img  
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          alt={item.title}
-                         src="https://images.unsplash.com/photo-1694878982378-4fc7fb9ca415" />
-                        
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          {item.type === 'video' ? (
-                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                              <Play className="w-8 h-8 text-[#E30613] ml-1" />
-                            </div>
-                          ) : (
-                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                              <ImageIcon className="w-8 h-8 text-[#E30613]" />
-                            </div>
-                          )}
-                        </div>
+        {/* Loading State */}
+        {isLoading && (
+          <div className="flex justify-center items-center py-20">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-200 border-t-orange-500 mb-4"></div>
+              <p className="text-gray-600 text-lg">
+                Loading {selectedYear} gallery...
+              </p>
+            </div>
+          </div>
+        )}
 
-                        {/* Media Type Badge */}
-                        <div className="absolute top-3 right-3">
-                          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                            item.type === 'video' 
-                              ? 'bg-[#E30613] text-white' 
-                              : 'bg-[#F4C402] text-[#1E2E73]'
-                          }`}>
-                            {item.type === 'video' ? 'Video' : 'Photo'}
-                          </span>
-                        </div>
-                      </div>
+        {/* Gallery Content */}
+        <div
+          className={`transition-all duration-700 ${
+            isLoading ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+          }`}
+        >
+          {/* Selected Year Header */}
+          <div className="text-center mb-8 lg:mb-12">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <Calendar className="h-6 w-6 text-orange-500" />
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                {selectedYear}
+              </h2>
+            </div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
+          </div>
 
-                      {/* Content */}
-                      <div className="p-4">
-                        <h3 className="font-semibold text-[#1E2E73] mb-1 line-clamp-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 line-clamp-2">
-                          {item.description}
-                        </p>
+          {/* Photos Grid */}
+          <div className="mb-12 lg:mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {currentData.photos.map((photo, index) => (
+                <div
+                  key={photo.id}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+
+                  <div className="relative bg-white rounded-2xl p-2 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+                    <img
+                      src={photo.src || "/placeholder.svg"}
+                      alt={photo.alt}
+                      className="w-full h-64 object-cover rounded-xl"
+                    />
+
+                    <div className="absolute inset-2 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <div className="p-4 w-full">
+                        <h4 className="text-white text-lg font-semibold">
+                          {photo.title}
+                        </h4>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
-
-            {/* No Results */}
-            {filteredItems.length === 0 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-12"
-              >
-                <ImageIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-600 mb-2">No media found</h3>
-                <p className="text-gray-500">Try selecting a different category</p>
-              </motion.div>
-            )}
-          </div>
-        </section>
-
-        {/* Lightbox Modal */}
-        <AnimatePresence>
-          {selectedMedia && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-              onClick={() => setSelectedMedia(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedMedia(null)}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-
-                {/* Image */}
-                <img  
-                  className="w-full h-auto max-h-[70vh] object-contain"
-                  alt={selectedMedia.title}
-                 src="https://images.unsplash.com/photo-1595872018818-97555653a011" />
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#1E2E73] mb-2">
-                    {selectedMedia.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {selectedMedia.description}
-                  </p>
+                  </div>
                 </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
-  );
-};
+              ))}
+            </div>
+          </div>
 
-export default Gallery;
+          {/* Videos Section */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center space-x-3">
+              <Play className="h-6 w-6 text-orange-500" />
+              <span>Video Highlights</span>
+            </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              {currentData.videos.map((video, index) => (
+                <div
+                  key={video.id}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                  style={{ animationDelay: `${(index + 6) * 100}ms` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-rose-400 to-orange-400 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+
+                  <div className="relative bg-white rounded-2xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg mb-3">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                        title={video.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+
+                    <div className="px-2 pb-2">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                        {video.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {video.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
