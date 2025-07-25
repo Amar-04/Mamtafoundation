@@ -1,0 +1,59 @@
+{
+  "navbar": {
+    "home": "Home",
+    "yatras": "Yatras",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "causes": "Causes",
+    "contact": "Contact",
+    "title": "Mamta Foundation Seva Samiti"
+  },
+  "slides": [
+    {
+      "title": "Khatushyam - Salasar - Sawariya Seth",
+      "description": "Embark on a soulful journey to the most revered shrines of Rajasthan. Seek blessings at Khatushyam Ji, Salasar Balaji, and Savanriya Seth — a divine trail of devotion and faith. Perfect for devotees looking for a quick yet spiritually fulfilling trip."
+    },
+    {
+      "title": "Shravan Special 5 Jyotirlingas - Ashtvinayak",
+      "description": "Celebrate the holy month of Shravan with the sacred darshan of 5 Jyotirlingas and the divine Ashtvinayak temples in Maharashtra. A rare opportunity to connect deeply with Lord Shiva and Lord Ganesha on this powerful pilgrimage."
+    },
+    {
+      "title": "Tirupati – Madurai – Kanyakumari – Rameshwaram – Trivandrum",
+      "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari. Discover ancient temples, oceanfront shrines, and centuries of tradition in this unforgettable yatra through the divine south."
+    },
+    {
+      "title": "Char Dham Yatra",
+      "description": "Experience India’s most sacred pilgrimage — the Char Dham Yatra. Journey through the Himalayas to seek blessings at Badrinath, Kedarnath, Gangotri, and Yamunotri. A life-changing spiritual adventure awaits."
+    }
+  ],
+  "explore_button": "Explore Yatras",
+  "aboutUs": {
+    "title": "About Us",
+    "mamta": "Mamta Foundation Seva Samiti's",
+    "mission1": " mission is to help devotees experience the",
+    "divine": "divine",
+    "mission2": " through",
+    "yatras": "well-organized, spiritual yatras",
+    "mission3": " to sacred destinations across",
+    "india": "India",
+    "experience": ". With years of experience and a deep-rooted passion for",
+    "dharma": "dharma",
+    "journeys": ", we curate journeys that blend",
+    "comfort": "comfort",
+    "devotion": "devotion",
+    "and": ", and",
+    "culture": "cultural immersion",
+    "support": ". We also proudly support social causes."
+  },
+  "causes": {
+    "title": "Seva Through Spiritual Journeys",
+    "p1": {
+      "prefix": "At",
+      "orgName": "Mamta Foundation Seva Samiti",
+      "rest": "we believe that true spiritual fulfillment comes through serving others. As we guide devotees on sacred yatras across India, we simultaneously extend our hands to uplift the society."
+    },
+    "p2": "Our foundation is dedicated to creating lasting impact through education initiatives and food distribution programs. Every spiritual journey becomes an opportunity for seva, transforming both the giver and receiver, and embodying the true essence of dharma in action.",
+    "foodImageAlt": "Food Distribution Drive",
+    "healthImageAlt": "Free Health Check-up Camp"
+  }
+}

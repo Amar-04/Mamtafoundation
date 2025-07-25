@@ -1,24 +1,30 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
   const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Yatras', path: '/yatras' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Reviews', path: '/reviews' },
-    { name: 'Causes', path: '/causes' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "Yatras", path: "/yatras" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Reviews", path: "/reviews" },
+    { name: "Causes", path: "/causes" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -31,11 +37,14 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#F4C402] to-[#E30613] flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-[#F4C402]">Divine Yatra</span>
+              <span className="lg:text-2xl font-bold text-[#F4C402]">
+                Mamta Foundation Seva Samiti
+              </span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Embark on sacred journeys to holy temples and contribute to meaningful charity work. 
-              Experience divine yatras with our spiritual travel organization dedicated to serving humanity.
+              Embark on sacred journeys to holy temples and contribute to
+              meaningful charity work. Experience divine yatras with our
+              spiritual travel organization dedicated to serving humanity.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -55,7 +64,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <span className="text-lg font-semibold text-[#F4C402] mb-4 block">Quick Links</span>
+            <span className="text-lg font-semibold text-[#F4C402] mb-4 block">
+              Quick Links
+            </span>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -72,7 +83,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <span className="text-lg font-semibold text-[#F4C402] mb-4 block">Contact Info</span>
+            <span className="text-lg font-semibold text-[#F4C402] mb-4 block">
+              Contact Info
+            </span>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#7DC3E8]" />
@@ -95,7 +108,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2024 Divine Yatra. All rights reserved. | Spreading spirituality and compassion worldwide.
+            © 2025 Eternal web solutions. All rights reserved. | Spreading spirituality
+            and compassion worldwide.
           </p>
         </div>
       </div>

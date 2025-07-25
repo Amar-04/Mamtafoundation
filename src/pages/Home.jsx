@@ -1,10 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
-import { ArrowRight, Heart, Users, MapPin, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import HeroSlider from "../components/home/HeroSlider";
 import AboutUs from "../components/home/AboutUs";
 import Causes from "../components/home/Causes";

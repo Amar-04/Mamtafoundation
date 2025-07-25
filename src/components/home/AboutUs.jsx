@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,7 +10,7 @@ const AboutUs = () => {
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
-              About Us
+              {t("aboutUs.title")}
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full"></div>
@@ -28,41 +32,43 @@ const AboutUs = () => {
 
               <blockquote className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700 font-medium italic pl-8">
                 <span className="text-orange-500 font-semibold">
-                  Mamta Foundation Seva Samiti's
+                  {t("aboutUs.mamta")}
                 </span>{" "}
-                mission is to help devotees experience the
+                {t("aboutUs.mission1")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
-                  divine
+                  {t("aboutUs.divine")}
                 </span>{" "}
-                through
+                {t("aboutUs.mission2")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
-                  well-organized, spiritual yatras
+                  {t("aboutUs.yatras")}
                 </span>{" "}
-                to sacred destinations across
-                <span className="text-orange-500 font-semibold"> India</span>.
-                With years of experience and a deep-rooted passion for
-                <span className="text-orange-500 font-semibold"> dharma</span>,
-                we curate journeys that blend
-                <span className="text-orange-500 font-semibold"> comfort</span>,
-                <span className="text-orange-500 font-semibold"> devotion</span>
-                , and
+                {t("aboutUs.mission3")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
-                  cultural immersion
+                  {t("aboutUs.india")}
                 </span>
-                . We also proudly support
+                .{t("aboutUs.experience")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
-                  social causes
-                </span>{" "}
-                that uplift
+                  {t("aboutUs.dharma")}
+                </span>
+                , {t("aboutUs.journeys")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
-                  underprivileged communities
-                </span>{" "}
-                along the routes we travel.
+                  {t("aboutUs.comfort")}
+                </span>
+                ,{" "}
+                <span className="text-orange-500 font-semibold">
+                  {t("aboutUs.devotion")}
+                </span>
+                , {t("aboutUs.and")}
+                <span className="text-orange-500 font-semibold">
+                  {" "}
+                  {t("aboutUs.culture")}
+                </span>
+                .{t("aboutUs.support")}
               </blockquote>
 
               <div className="absolute -bottom-12 -right-2 text-6xl text-orange-300 font-serif leading-none">

@@ -1,6 +1,9 @@
-import { Heart, Users, Stethoscope, BookOpen, Utensils } from "lucide-react";
+import { Heart } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Causes = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-rose-200 via-orange-200 to-amber-200 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -21,7 +24,7 @@ const Causes = () => {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
-              Seva Through Spiritual Journeys
+              {t("causes.title")}
             </span>
           </h2>
 
@@ -29,22 +32,15 @@ const Causes = () => {
 
           <div className="max-w-4xl mx-auto">
             <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700 font-medium mb-6">
-              At{" "}
+              {t("causes.p1.prefix")}{" "}
               <span className="font-bold text-orange-700">
-                Mamta Foundation Seva Samiti
+                {t("causes.p1.orgName")}
               </span>
-              , we believe that true spiritual fulfillment comes through serving
-              others. As we guide devotees on sacred yatras across India, we
-              simultaneously extend our hands to uplift underprivileged
-              communities along our pilgrimage routes.
+              {" "} {t("causes.p1.rest")}
             </p>
 
             <p className="text-lg sm:text-xl leading-relaxed text-gray-600">
-              Our foundation is dedicated to creating lasting impact through
-              education initiatives, healthcare services, and food distribution
-              programs. Every spiritual journey becomes an opportunity for seva,
-              transforming both the giver and receiver, and embodying the true
-              essence of dharma in action.
+              {t("causes.p2")}
             </p>
           </div>
         </div>
@@ -59,7 +55,7 @@ const Causes = () => {
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
                   src="/placeholder.svg?height=300&width=500&text=Food+Distribution+Drive"
-                  alt="Food Distribution Drive"
+                  alt={t("causes.foodImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />
               </div>
@@ -74,7 +70,7 @@ const Causes = () => {
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
                   src="/placeholder.svg?height=300&width=500&text=Free+Health+Check-up+Camp"
-                  alt="Free Health Check-up Camp"
+                  alt={t("causes.healthImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />
               </div>

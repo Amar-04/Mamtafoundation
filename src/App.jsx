@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
@@ -10,6 +9,9 @@ import Reviews from "@/pages/Reviews.jsx";
 import Causes from "@/pages/Causes.jsx";
 import Contact from "@/pages/Contact.jsx";
 import { Toaster } from "@/components/ui/toaster";
+import './i18n';
+import WhatsAppButton from "./components/WhatsappButton";
+
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
 
         <Footer />
         <Toaster />
+        <WhatsAppButton />
       </div>
     </Router>
   );

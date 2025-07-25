@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, Play } from "lucide-react";
+import { Star, Play } from "lucide-react";
 
 const reviews = [
   {
@@ -32,7 +31,7 @@ const reviews = [
   },
   {
     id: 4,
-    videoId: "jNQXAC9IVRw", // Placeholder YouTube video ID
+    videoId: "jNQXAC9IVRw",
     reviewerName: "Amit Gupta",
     yatraName: "Amarnath Yatra 2024",
     review:
@@ -61,16 +60,6 @@ export default function ReviewsSection() {
     setIsAutoPlaying(false);
     // Resume auto-play after 15 seconds of manual interaction
     setTimeout(() => setIsAutoPlaying(true), 15000);
-  };
-
-  const goToPrevious = () => {
-    const newIndex = currentSlide === 0 ? reviews.length - 1 : currentSlide - 1;
-    goToSlide(newIndex);
-  };
-
-  const goToNext = () => {
-    const newIndex = (currentSlide + 1) % reviews.length;
-    goToSlide(newIndex);
   };
 
   const renderStars = (rating) => {
