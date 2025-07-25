@@ -10,7 +10,7 @@ import Causes from "@/pages/Causes.jsx";
 import Contact from "@/pages/Contact.jsx";
 import { Toaster } from "@/components/ui/toaster";
 import './i18n';
-import WhatsAppButton from "./components/WhatsappButton";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 
 function App() {
