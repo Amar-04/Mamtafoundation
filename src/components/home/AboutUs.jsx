@@ -49,26 +49,26 @@ const AboutUs = () => {
                   {" "}
                   {t("aboutUs.india")}
                 </span>
-                .{t("aboutUs.experience")}
+                {" "}{t("aboutUs.experience")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.dharma")}
-                </span>
-                , {t("aboutUs.journeys")}
+                </span> {" "}
+                 {t("aboutUs.journeys")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.comfort")}
                 </span>
-                ,{" "}
+                {" "}
                 <span className="text-orange-500 font-semibold">
                   {t("aboutUs.devotion")}
                 </span>
-                , {t("aboutUs.and")}
+                 {t("aboutUs.and")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.culture")}
                 </span>
-                .{t("aboutUs.support")}
+                {t("aboutUs.support")}
               </blockquote>
 
               <div className="absolute -bottom-12 -right-2 text-6xl text-orange-300 font-serif leading-none">

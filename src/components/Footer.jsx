@@ -9,22 +9,24 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "#", label: t("footer.socialLinks.facebook") },
+    { icon: Instagram, href: "#", label: t("footer.socialLinks.instagram") },
+    { icon: Youtube, href: "#", label: t("footer.socialLinks.youtube") },
   ];
 
   const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "Yatras", path: "/yatras" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Reviews", path: "/reviews" },
-    { name: "Causes", path: "/causes" },
-    { name: "Contact", path: "/contact" },
+    { name: t("footer.quickLinks.home"), path: "/" },
+    { name: t("footer.quickLinks.yatras"), path: "/yatras" },
+    { name: t("footer.quickLinks.gallery"), path: "/gallery" },
+    { name: t("footer.quickLinks.reviews"), path: "/reviews" },
+    { name: t("footer.quickLinks.causes"), path: "/causes" },
+    { name: t("footer.quickLinks.contact"), path: "/contact" },
   ];
 
   return (
@@ -38,13 +40,11 @@ const Footer = () => {
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <span className="lg:text-2xl font-bold text-[#F4C402]">
-                Mamta Foundation Seva Samiti
+                {t("footer.organizationName")}
               </span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Embark on sacred journeys to holy temples and contribute to
-              meaningful charity work. Experience divine yatras with our
-              spiritual travel organization dedicated to serving humanity.
+              {t("footer.description")}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -65,7 +65,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <span className="text-lg font-semibold text-[#F4C402] mb-4 block">
-              Quick Links
+              {t("footer.quickLinks.title")}
             </span>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -84,21 +84,25 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <span className="text-lg font-semibold text-[#F4C402] mb-4 block">
-              Contact Info
+              {t("footer.contactInfo.title")}
             </span>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#7DC3E8]" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">
+                  {t("footer.contactInfo.phone")}
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#7DC3E8]" />
-                <span className="text-gray-300">info@divineyatra.com</span>
+                <span className="text-gray-300">
+                  {t("footer.contactInfo.email")}
+                </span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#7DC3E8] mt-1" />
                 <span className="text-gray-300">
-                  123 Temple Street, Sacred City, India 110001
+                  {t("footer.contactInfo.address")}
                 </span>
               </div>
             </div>
@@ -107,10 +111,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2025 Eternal web solutions. All rights reserved. | Spreading spirituality
-            and compassion worldwide.
-          </p>
+          <p className="text-gray-300">{t("footer.copyright")}</p>
         </div>
       </div>
     </footer>

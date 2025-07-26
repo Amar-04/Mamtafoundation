@@ -98,7 +98,7 @@ const Reviews = () => {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                Pilgrim Testimonials
+                Testimonials
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
                 Hear from thousands of satisfied pilgrims who experienced divine
@@ -114,10 +114,6 @@ const Reviews = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-20"
             >
-              <h2 className="text-3xl font-bold text-center gradient-text mb-12">
-                Video Testimonials
-              </h2>
-
               <div className="relative max-w-4xl mx-auto">
                 <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl">
                   <AnimatePresence mode="wait">

@@ -1,48 +1,42 @@
 import { useState, useEffect } from "react";
 import { Star, Play } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const reviews = [
+const staticReviewData = [
   {
     id: 1,
     videoId: "dQw4w9WgXcQ", // Placeholder YouTube video ID
-    reviewerName: "Priya Sharma",
-    yatraName: "Char Dham Yatra 2024",
-    review:
-      "An absolutely transformative experience! The organization was impeccable, and every detail was taken care of. The spiritual guidance provided throughout the journey made this yatra truly memorable. I felt a deep connection with the divine at each sacred destination.",
     rating: 5,
   },
   {
     id: 2,
     videoId: "9bZkp7q19f0", // Placeholder YouTube video ID
-    reviewerName: "Rajesh Kumar",
-    yatraName: "Kailash Mansarovar Yatra",
-    review:
-      "This was the journey of a lifetime! The team's expertise in handling the challenging terrain and their dedication to our comfort was remarkable. The spiritual atmosphere they created helped us focus on our devotion throughout this sacred pilgrimage.",
     rating: 5,
   },
   {
     id: 3,
     videoId: "ScMzIvxBSi4", // Placeholder YouTube video ID
-    reviewerName: "Meera Patel",
-    yatraName: "Vaishno Devi Yatra",
-    review:
-      "Beautifully organized yatra with excellent arrangements. The guides were knowledgeable about the religious significance of each place. What touched me most was their seva activities - seeing them help local communities made the journey even more meaningful.",
     rating: 5,
   },
   {
     id: 4,
     videoId: "jNQXAC9IVRw",
-    reviewerName: "Amit Gupta",
-    yatraName: "Amarnath Yatra 2024",
-    review:
-      "Professional service with a personal touch. The safety measures were top-notch, and the spiritual guidance provided by the team enhanced our devotional experience. The combination of comfort and spirituality was perfect for our family.",
     rating: 5,
   },
 ];
 
 export default function ReviewsSection() {
+  const { t, i18n } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Combine static data with translated content
+  const reviews = staticReviewData.map((item, index) => ({
+    ...item,
+    reviewerName: t(`reviews.reviewData.${index}.reviewerName`),
+    yatraName: t(`reviews.reviewData.${index}.yatraName`),
+    review: t(`reviews.reviewData.${index}.review`),
+  }));
 
   // Auto-scroll functionality
   useEffect(() => {
@@ -53,7 +47,7 @@ export default function ReviewsSection() {
     }, 8000); // Change slide every 8 seconds
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, reviews.length]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -93,15 +87,14 @@ export default function ReviewsSection() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">
-              Our Happy Yatrees
+              {t("reviews.title")}
             </span>
           </h2>
 
           <div className="w-32 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 mx-auto rounded-full mb-6"></div>
 
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from our fellow devotees about their transformative spiritual
-            journeys and sacred experiences
+            {t("reviews.subtitle")}
           </p>
         </div>
 
@@ -149,7 +142,11 @@ export default function ReviewsSection() {
                       </div>
 
                       {/* Reviewer Info */}
-                      <div className="text-center lg:text-left">
+                      <div
+                        className={`text-center lg:text-left ${
+                          i18n.language === "gu" ? "font-gujarati" : ""
+                        }`}
+                      >
                         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
                           {review.reviewerName}
                         </h3>

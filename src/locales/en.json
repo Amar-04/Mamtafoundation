@@ -55,5 +55,99 @@
     "p2": "Our foundation is dedicated to creating lasting impact through education initiatives and food distribution programs. Every spiritual journey becomes an opportunity for seva, transforming both the giver and receiver, and embodying the true essence of dharma in action.",
     "foodImageAlt": "Food Distribution Drive",
     "healthImageAlt": "Free Health Check-up Camp"
+  },
+  "reviews": {
+    "title": "Our Happy Yatrees",
+    "subtitle": "Hear from our fellow devotees about their transformative spiritual journeys and sacred experiences",
+    "reviewData": [
+      {
+        "reviewerName": "Priya Sharma",
+        "yatraName": "Char Dham Yatra 2024",
+        "review": "An absolutely transformative experience! The organization was impeccable, and every detail was taken care of. The spiritual guidance provided throughout the journey made this yatra truly memorable. I felt a deep connection with the divine at each sacred destination."
+      },
+      {
+        "reviewerName": "Rajesh Kumar",
+        "yatraName": "Kailash Mansarovar Yatra",
+        "review": "This was the journey of a lifetime! The team's expertise in handling the challenging terrain and their dedication to our comfort was remarkable. The spiritual atmosphere they created helped us focus on our devotion throughout this sacred pilgrimage."
+      },
+      {
+        "reviewerName": "Meera Patel",
+        "yatraName": "Vaishno Devi Yatra",
+        "review": "Beautifully organized yatra with excellent arrangements. The guides were knowledgeable about the religious significance of each place. What touched me most was their seva activities - seeing them help local communities made the journey even more meaningful."
+      },
+      {
+        "reviewerName": "Amit Gupta",
+        "yatraName": "Amarnath Yatra 2024",
+        "review": "Professional service with a personal touch. The safety measures were top-notch, and the spiritual guidance provided by the team enhanced our devotional experience. The combination of comfort and spirituality was perfect for our family."
+      }
+    ]
+  },
+  "footer": {
+    "organizationName": "Mamta Foundation Seva Samiti",
+    "description": "Embark on sacred journeys to holy temples. Experience divine yatras with our spiritual travel organization dedicated to serving humanity.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "yatras": "Yatras",
+      "gallery": "Gallery",
+      "reviews": "Reviews",
+      "causes": "Causes",
+      "contact": "Contact"
+    },
+    "contactInfo": {
+      "title": "Contact Info",
+      "phone": "+91 98765 43210",
+      "email": "info@divineyatra.com",
+      "address": "123 Temple Street, Sacred City, India 110001"
+    },
+    "socialLinks": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "copyright": "© 2025 Mamta Foundation Seva Samiti. All rights reserved. | Spreading spirituality and compassion worldwide."
+  },
+  "yatras": {
+    "pageTitle": "Sacred Yatras - Temple Tours & Spiritual Journeys | Divine Yatra",
+    "metaDescription": "Explore our upcoming and ongoing yatras to sacred temples across India. Book your spiritual journey with expert guidance and group travel.",
+    "title": "Sacred Yatras",
+    "subtitle": "Embark on transformative spiritual journeys to India's most sacred temples and holy sites. Join fellow pilgrims in experiencing divine blessings and inner peace.",
+    "viewDetails": "View Details (PDF)",
+    "bookNow": "Book Now",
+    "upcoming": "Upcoming",
+    "ongoing": "Ongoing",
+    "days": "Days",
+    "yatra1": {
+      "name": "Khatushyam - Salasar - Sawariya Seth",
+      "location": "Uttarakhand",
+      "dates": "May 15 - May 25, 2024",
+      "duration": "10 Days",
+      "description": "Embark on a soulful journey to the most revered shrines of Rajasthan.",
+      "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
+    },
+    "yatra2": {
+      "name": "Shravan Special 5 Jyotirlingas - Ashtvinayak",
+      "location": "Varanasi, Uttar Pradesh",
+      "dates": "March 20 - March 23, 2024",
+      "duration": "4 Days",
+      "description": "Celebrate the month of Shravan with darshan of 5 Jyotirlingas and the divine Ashtvinayak temples",
+      "imageAlt": "Ancient temple on the banks of river Ganges with evening aarti"
+    },
+    "yatra3": {
+      "name": "Tirupati – Madurai – Kanyakumari – Rameshwaram – Trivandrum",
+      "location": "Andhra Pradesh",
+      "dates": "April 10 - April 13, 2024",
+      "duration": "4 Days",
+      "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari.",
+      "imageAlt": "Magnificent South Indian temple with golden gopuram"
+    },
+    "yatra4": {
+      "name": "Char Dham Yatra",
+      "location": "Gujarat",
+      "dates": "June 5 - June 10, 2024",
+      "duration": "6 Days",
+      "description": "Experience the Char Dham Yatra. Journey through Badrinath, Kedarnath, Gangotri, and Yamunotri.",
+      "imageAlt": "Coastal temple with Arabian Sea waves in the background"
+    }
   }
 }
