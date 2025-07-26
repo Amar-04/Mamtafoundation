@@ -10,7 +10,7 @@ const staticReviewData = [
   },
   {
     id: 2,
-    videoId: "9bZkp7q19f0", // Placeholder YouTube video ID
+    videoId: "YFA3B1T2bag", // Placeholder YouTube video ID
     rating: 5,
   },
   {
