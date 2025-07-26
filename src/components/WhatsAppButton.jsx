@@ -1,5 +1,5 @@
 const WhatsAppButton = () => {
-  const phoneNumber = "919054087296"; // Use your number here
+  const phoneNumber = "919313840744"; // Use your number here
   const message = "Hello, I'm interested in your temple tour services!";
   const link = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message

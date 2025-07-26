@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const staticReviewData = [
   {
     id: 1,
-    videoId: "dQw4w9WgXcQ", // Placeholder YouTube video ID
+    videoId: "tmkP1rAoKU0", // Placeholder YouTube video ID
     rating: 5,
   },
   {
