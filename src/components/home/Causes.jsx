@@ -54,7 +54,7 @@ const Causes = () => {
 
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
-                  src="/placeholder.svg?height=300&width=500&text=Food+Distribution+Drive"
+                  src="homeseva-1.jpeg"
                   alt={t("causes.foodImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />
@@ -69,7 +69,7 @@ const Causes = () => {
 
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
-                  src="/placeholder.svg?height=300&width=500&text=Free+Health+Check-up+Camp"
+                  src="/homeseva-2.jpeg"
                   alt={t("causes.healthImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />

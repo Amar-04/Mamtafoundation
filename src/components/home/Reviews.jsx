@@ -15,12 +15,12 @@ const staticReviewData = [
   },
   {
     id: 3,
-    videoId: "ScMzIvxBSi4", // Placeholder YouTube video ID
+    videoId: "Wb8YawE8PKg", // Placeholder YouTube video ID
     rating: 5,
   },
   {
     id: 4,
-    videoId: "jNQXAC9IVRw",
+    videoId: "OJ71eBAx56g",
     rating: 5,
   },
 ];

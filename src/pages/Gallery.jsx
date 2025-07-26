@@ -73,37 +73,37 @@ const galleryData = [
     photos: [
       {
         id: 7,
-        src: "/placeholder.svg?height=300&width=400&text=Tirupati+2023",
+        src: "/2023-1.jpeg",
         alt: "Tirupati 2023",
         title: "Lord Venkateswara Temple",
       },
       {
         id: 8,
-        src: "/placeholder.svg?height=300&width=400&text=Shirdi+2023",
+        src: "/2023-2.jpeg",
         alt: "Shirdi 2023",
         title: "Sai Baba Samadhi",
       },
       {
         id: 9,
-        src: "/placeholder.svg?height=300&width=400&text=Dwarka+2023",
+        src: "/2023-3.jpeg",
         alt: "Dwarka 2023",
         title: "Dwarkadhish Temple",
       },
       {
         id: 10,
-        src: "/placeholder.svg?height=300&width=400&text=Somnath+2023",
+        src: "/2023-4.jpeg",
         alt: "Somnath 2023",
         title: "Somnath Jyotirlinga",
       },
       {
         id: 11,
-        src: "/placeholder.svg?height=300&width=400&text=Rameshwaram+2023",
+        src: "/2023-5.jpeg",
         alt: "Rameshwaram 2023",
         title: "Ramanathaswamy Temple",
       },
       {
         id: 12,
-        src: "/placeholder.svg?height=300&width=400&text=Kanyakumari+2023",
+        src: "/2023-6.jpeg",
         alt: "Kanyakumari 2023",
         title: "Southernmost Tip of India",
       },
