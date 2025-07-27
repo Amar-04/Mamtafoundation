@@ -18,7 +18,7 @@ function App() {
     <Router>
       <div className="min-h-screen">
         <Helmet>
-          <title>Divine Yatra - Spiritual Travel & Charity Organization</title>
+          <title>Mamta Foundation Seva Samiti</title>
           <meta
             name="description"
             content="Join us on sacred journeys to holy temples and contribute to meaningful charity work. Experience divine yatras with our spiritual travel organization."
