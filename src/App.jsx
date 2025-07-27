@@ -11,11 +11,13 @@ import Contact from "@/pages/Contact.jsx";
 import { Toaster } from "@/components/ui/toaster";
 import './i18n';
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Helmet>
           <title>Mamta Foundation Seva Samiti</title>
