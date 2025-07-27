@@ -318,7 +318,7 @@ const Contact = () => {
                   </h3>
                   <div className="h-64 rounded-lg overflow-hidden">
                     <iframe
-                      title="Divine Yatra Location"
+                      title="Mamta Foundation Location"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.016404435225!2d73.22977237384073!3d22.315219342357295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf72a18b231f%3A0x87de41e4817b54ed!2sMAMTA%20FOUNDATION%20SEVA%20SAMITI!5e0!3m2!1sen!2sin!4v1753606663984!5m2!1sen!2sin"
                       width="100%"
                       height="100%"

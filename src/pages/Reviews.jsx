@@ -127,25 +127,14 @@ const Reviews = () => {
                     >
                       {/* Video Thumbnail */}
                       <div className="relative h-64 md:h-80 overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          alt={`${videoTestimonials[currentTestimonial].name} testimonial`}
-                          src="https://images.unsplash.com/photo-1567443024551-f3e3cc2be870"
+                        <iframe
+                          className="w-full h-full"
+                          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1"
+                          title="YouTube video testimonial"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
                         />
-
-                        {/* Play Button Overlay */}
-                        <div
-                          className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer"
-                          onClick={() =>
-                            handleVideoPlay(
-                              videoTestimonials[currentTestimonial].name
-                            )
-                          }
-                        >
-                          <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors">
-                            <Play className="w-10 h-10 text-[#E30613] ml-1" />
-                          </div>
-                        </div>
                       </div>
 
                       {/* Testimonial Info */}
@@ -189,6 +178,59 @@ const Reviews = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* Text Reviews Slider */}
+            <div className="mt-20 max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center text-[#1E2E73] mb-8">
+                What Our Pilgrims Say
+              </h2>
+
+              <div className="relative bg-white shadow-xl rounded-2xl p-8">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentTestimonial}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <p className="text-lg text-gray-700 italic mb-4">
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed fringilla efficitur orci, a fermentum lorem lacinia
+                      non."
+                    </p>
+                    <div className="text-right">
+                      <p className="font-bold text-[#1E2E73]">Ramesh Bhai</p>
+                      <p className="text-sm text-gray-500">
+                        Ayodhya Ram Mandir Yatra
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Slider Controls */}
+                <div className="flex justify-between mt-6">
+                  <button
+                    onClick={() =>
+                      setCurrentTestimonial(
+                        (prev) =>
+                          (prev - 1 + videoTestimonials.length) %
+                          videoTestimonials.length
+                      )
+                    }
+                    className="text-[#1E2E73] hover:text-[#7A1C1C] transition-colors"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="text-[#1E2E73] hover:text-[#7A1C1C] transition-colors"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+            </div>
 
             {/* Call to Action */}
             <motion.div

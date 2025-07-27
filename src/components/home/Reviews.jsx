@@ -3,32 +3,15 @@ import { Star, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const staticReviewData = [
-  {
-    id: 1,
-    videoId: "tmkP1rAoKU0", // Placeholder YouTube video ID
-    rating: 5,
-  },
-  {
-    id: 2,
-    videoId: "YFA3B1T2bag", // Placeholder YouTube video ID
-    rating: 5,
-  },
-  {
-    id: 3,
-    videoId: "Wb8YawE8PKg", // Placeholder YouTube video ID
-    rating: 5,
-  },
-  {
-    id: 4,
-    videoId: "OJ71eBAx56g",
-    rating: 5,
-  },
+  { id: 1, videoId: "tmkP1rAoKU0", rating: 5 },
+  { id: 2, videoId: "YFA3B1T2bag", rating: 5 },
+  { id: 3, videoId: "Wb8YawE8PKg", rating: 5 },
+  { id: 4, videoId: "OJ71eBAx56g", rating: 5 },
 ];
 
 export default function ReviewsSection() {
   const { t, i18n } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Combine static data with translated content
   const reviews = staticReviewData.map((item, index) => ({
@@ -38,22 +21,39 @@ export default function ReviewsSection() {
     review: t(`reviews.reviewData.${index}.review`),
   }));
 
-  // Auto-scroll functionality
+  // Load YouTube API once
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!window.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+  }, []);
 
+  // Setup YouTube Player for current slide
+  useEffect(() => {
+    let player;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % reviews.length);
-    }, 8000); // Change slide every 8 seconds
-
+      if (window.YT && window.YT.Player) {
+        clearInterval(interval);
+        player = new window.YT.Player(`player-${currentSlide}`, {
+          events: {
+            onReady: (event) => event.target.playVideo(),
+            onStateChange: (event) => {
+              if (event.data === window.YT.PlayerState.ENDED) {
+                setCurrentSlide((prev) => (prev + 1) % reviews.length);
+              }
+            },
+          },
+        });
+      }
+    }, 500);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, reviews.length]);
+  }, [currentSlide]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    // Resume auto-play after 15 seconds of manual interaction
-    setTimeout(() => setIsAutoPlaying(true), 15000);
   };
 
   const renderStars = (rating) => {
@@ -69,7 +69,6 @@ export default function ReviewsSection() {
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 relative overflow-hidden">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-8 w-32 h-32 bg-amber-200/20 rounded-full blur-2xl"></div>
         <div className="absolute bottom-32 right-12 w-40 h-40 bg-orange-200/20 rounded-full blur-2xl"></div>
@@ -77,7 +76,6 @@ export default function ReviewsSection() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div className="flex justify-center mb-6">
             <div className="bg-gradient-to-r from-amber-500 to-orange-500 p-4 rounded-full shadow-lg">
@@ -98,7 +96,6 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        {/* Reviews Slider */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden rounded-3xl">
             {reviews.map((review, index) => (
@@ -116,11 +113,11 @@ export default function ReviewsSection() {
                     <div className="order-1 lg:order-1">
                       <div className="relative group">
                         <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
-
                         <div className="relative bg-white rounded-2xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                           <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
                             <iframe
-                              src={`https://www.youtube.com/embed/${review.videoId}?rel=0&modestbranding=1`}
+                              id={`player-${index}`}
+                              src={`https://www.youtube.com/embed/${review.videoId}?autoplay=1&mute=1&rel=0&modestbranding=1&enablejsapi=1`}
                               title={`${review.reviewerName} - ${review.yatraName}`}
                               className="w-full h-full"
                               frameBorder="0"
@@ -134,14 +131,12 @@ export default function ReviewsSection() {
 
                     {/* Content Section */}
                     <div className="order-2 lg:order-2 space-y-6">
-                      {/* Rating */}
                       <div className="flex justify-center lg:justify-start">
                         <div className="flex space-x-1">
                           {renderStars(review.rating)}
                         </div>
                       </div>
 
-                      {/* Reviewer Info */}
                       <div
                         className={`text-center lg:text-left ${
                           i18n.language === "gu" ? "font-gujarati" : ""
@@ -155,7 +150,6 @@ export default function ReviewsSection() {
                         </p>
                       </div>
 
-                      {/* Review Text */}
                       <div className="relative">
                         <div className="absolute -top-4 -left-2 text-4xl text-orange-300 font-serif leading-none">
                           "
@@ -168,7 +162,6 @@ export default function ReviewsSection() {
                         </div>
                       </div>
 
-                      {/* Decorative elements */}
                       <div className="flex justify-center lg:justify-start">
                         <div className="flex space-x-2">
                           <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
