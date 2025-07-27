@@ -311,16 +311,17 @@ const Contact = () => {
                   <h3 className="text-lg font-semibold text-[#1E2E73] mb-4">
                     Find Us
                   </h3>
-                  <div className="h-64 bg-gradient-to-br from-[#7DC3E8]/20 to-[#F4C402]/20 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 text-[#1E2E73] mx-auto mb-3" />
-                      <p className="text-[#1E2E73] font-medium">
-                        Interactive Map
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        123 Temple Street, Sacred City, India
-                      </p>
-                    </div>
+                  <div className="h-64 rounded-lg overflow-hidden">
+                    <iframe
+                      title="Divine Yatra Location"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0462486211624!2d85.3123291150617!3d27.708955882793074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198d1c75dfc3%3A0xc74d59fa640d187f!2sPashupatinath%20Temple!5e0!3m2!1sen!2sin!4v1615990022546!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                 </motion.div>
               </motion.div>

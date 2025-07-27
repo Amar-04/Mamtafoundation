@@ -202,10 +202,7 @@ export default function CausesPage() {
                   <span className="font-bold text-orange-700">
                     Mamta Foundation
                   </span>{" "}
-                  believe that true spirituality is reflected in the service of
-                  humanity. Through our causes, we aim to bring positive change
-                  to lives across India by supporting those in need during our
-                  spiritual yatras.
+                 believe that true spiritual fulfillment comes through serving others. As we guide devotees on sacred yatras across India, we simultaneously extend our hands to uplift the society.
                 </p>
                 <div className="absolute -bottom-4 right-0 text-6xl text-orange-300 font-serif leading-none transform rotate-180">
                   "
