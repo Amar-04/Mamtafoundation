@@ -17,7 +17,7 @@ const Reviews = () => {
       location: "Delhi",
       yatra: "Char Dham Yatra 2023",
       rating: 5,
-      videoId: "vEYWL8cyoqA"
+      videoId: "vEYWL8cyoqA",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Reviews = () => {
       location: "Mumbai",
       yatra: "Tirupati Balaji Darshan",
       rating: 5,
-      videoId: "Diq2WEXWqPU"
+      videoId: "Diq2WEXWqPU",
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const Reviews = () => {
       location: "Ahmedabad",
       yatra: "Dwarka & Somnath Yatra",
       rating: 5,
-      videoId: "0KFrXdf-hh4"
+      videoId: "0KFrXdf-hh4",
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ const Reviews = () => {
       location: "Kolkata",
       yatra: "Jagannath Puri Yatra",
       rating: 5,
-      videoId: "qXbwdDZlwKc"
+      videoId: "qXbwdDZlwKc",
     },
   ];
 
@@ -58,41 +58,33 @@ const Reviews = () => {
 
   // Load and handle YouTube API
   useEffect(() => {
-    if (!window.YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
+    let player;
 
-    window.onYouTubeIframeAPIReady = () => {
-      createPlayer();
-    };
+    const interval = setInterval(() => {
+      const iframe = document.getElementById(`yt-player-${currentTestimonial}`);
+      if (iframe && window.YT && window.YT.Player) {
+        clearInterval(interval);
 
-    if (window.YT && window.YT.Player) {
-      createPlayer();
-    }
-
-    function createPlayer() {
-      if (playerRef.current) playerRef.current.destroy();
-
-      playerRef.current = new window.YT.Player(`yt-player-${currentTestimonial}`, {
-        events: {
-          onStateChange: (event) => {
-            if (event.data === window.YT.PlayerState.ENDED) {
-              setTimeout(() => {
-                setCurrentTestimonial(
-                  (prev) => (prev + 1) % videoTestimonials.length
-                );
-              }, 1000);
-            }
+        player = new window.YT.Player(`yt-player-${currentTestimonial}`, {
+          events: {
+            onStateChange: (event) => {
+              if (event.data === window.YT.PlayerState.ENDED) {
+                setTimeout(() => {
+                  setCurrentTestimonial(
+                    (prev) => (prev + 1) % videoTestimonials.length
+                  );
+                }, 1000);
+              }
+            },
           },
-        },
-      });
-    }
+        });
+      }
+    }, 300); // Poll every 300ms until iframe is ready
 
     return () => {
-      if (playerRef.current && playerRef.current.destroy) {
-        playerRef.current.destroy();
+      clearInterval(interval);
+      if (player && typeof player.destroy === "function") {
+        player.destroy();
       }
     };
   }, [currentTestimonial]);
@@ -100,7 +92,9 @@ const Reviews = () => {
   return (
     <>
       <Helmet>
-        <title>Reviews & Testimonials - Pilgrim Experiences | Divine Yatra</title>
+        <title>
+          Reviews & Testimonials - Pilgrim Experiences | Divine Yatra
+        </title>
         <meta
           name="description"
           content="Read authentic reviews and watch video testimonials from pilgrims who experienced divine journeys with us."
@@ -120,7 +114,8 @@ const Reviews = () => {
                 Testimonials
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Hear from thousands of satisfied pilgrims who experienced divine journeys.
+                Hear from thousands of satisfied pilgrims who experienced divine
+                journeys.
               </p>
             </motion.div>
 
@@ -167,7 +162,9 @@ const Reviews = () => {
                             </p>
                           </div>
                           <div className="flex">
-                            {renderStars(videoTestimonials[currentTestimonial].rating)}
+                            {renderStars(
+                              videoTestimonials[currentTestimonial].rating
+                            )}
                           </div>
                         </div>
                       </div>
@@ -207,8 +204,9 @@ const Reviews = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <p className="text-lg text-gray-700 italic mb-4">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                      fringilla efficitur orci, a fermentum lorem lacinia non."
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed fringilla efficitur orci, a fermentum lorem lacinia
+                      non."
                     </p>
                     <div className="text-right">
                       <p className="font-bold text-[#1E2E73]">Ramesh Bhai</p>

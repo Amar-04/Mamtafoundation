@@ -46,6 +46,48 @@ const galleryData = [
         alt: "Gangotri 2024",
         title: "Gangotri Glacier",
       },
+      {
+        id: 7,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 8,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 9,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 10,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 11,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 12,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 13,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
     ],
     videos: [
       {
