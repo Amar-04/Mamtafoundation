@@ -254,7 +254,7 @@ const Contact = () => {
                   </Button>
                 </form>
                 <img
-                  src="/Hero1.jpeg" // Adjust path as needed
+                  src="/contact1.jpeg" // Adjust path as needed
                   alt="Our Office"
                   className="w-full h-auto object-cover mt-8"
                 />

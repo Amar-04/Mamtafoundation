@@ -18,7 +18,7 @@ const causeEvents = [
     images: [
       {
         id: 1,
-        src: "/causes1.jpeg",
+        src: "/sarbat6.jpeg",
         alt: "Volunteers distributing sharbat",
       },
       {
@@ -28,7 +28,7 @@ const causeEvents = [
       },
       {
         id: 3,
-        src: "/causes3.jpeg",
+        src: "/sarbat-1.jpeg",
         alt: "Community members served with drinks",
       },
        {
@@ -39,7 +39,7 @@ const causeEvents = [
       },
       {
         id: 5,
-        src: "/causes5.jpeg",
+        src: "/sarbat-2.jpeg",
         alt: "Team organizing blankets",
        
       },
