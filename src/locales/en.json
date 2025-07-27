@@ -119,33 +119,33 @@
     "days": "Days",
     "yatra1": {
       "name": "Khatushyam - Salasar - Sawariya Seth",
-      "location": "Uttarakhand",
-      "dates": "May 15 - May 25, 2024",
-      "duration": "10 Days",
+      "location": "Vadodara",
+      "dates": "August 14, 2025",
+      "duration": "5 Days",
       "description": "Embark on a soulful journey to the most revered shrines of Rajasthan.",
       "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
     },
     "yatra2": {
       "name": "Shravan Special 5 Jyotirlingas - Ashtvinayak",
-      "location": "Varanasi, Uttar Pradesh",
-      "dates": "March 20 - March 23, 2024",
-      "duration": "4 Days",
+      "location": "Vadodara",
+      "dates": "July 25 / August 13, 2025",
+      "duration": "8 Days",
       "description": "Celebrate the month of Shravan with darshan of 5 Jyotirlingas and the divine Ashtvinayak temples",
       "imageAlt": "Ancient temple on the banks of river Ganges with evening aarti"
     },
     "yatra3": {
       "name": "Tirupati – Madurai – Kanyakumari – Rameshwaram – Trivandrum",
-      "location": "Andhra Pradesh",
-      "dates": "April 10 - April 13, 2024",
-      "duration": "4 Days",
+      "location": "Vadodara",
+      "dates": "November 8, 2025",
+      "duration": "11 Days",
       "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari.",
       "imageAlt": "Magnificent South Indian temple with golden gopuram"
     },
     "yatra4": {
       "name": "Char Dham Yatra",
-      "location": "Gujarat",
-      "dates": "June 5 - June 10, 2024",
-      "duration": "6 Days",
+      "location": "Vadodara",
+      "dates": "september 8, 2025",
+      "duration": "12 Days",
       "description": "Experience the Char Dham Yatra. Journey through Badrinath, Kedarnath, Gangotri, and Yamunotri.",
       "imageAlt": "Coastal temple with Arabian Sea waves in the background"
     }

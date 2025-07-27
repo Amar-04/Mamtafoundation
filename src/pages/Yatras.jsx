@@ -17,7 +17,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra1.duration",
       descriptionKey: "yatras.yatra1.description",
       imageAltKey: "yatras.yatra1.imageAlt",
-      pdf: "/admissionletter.pdf",
+      image: "/Hero1.jpeg",
+      pdf: "/yatra-1.pdf",
     },
     {
       id: 2,
@@ -27,7 +28,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra2.duration",
       descriptionKey: "yatras.yatra2.description",
       imageAltKey: "yatras.yatra2.imageAlt",
-      pdf: "/admissionletter.pdf",
+      image: "/Hero2.jpeg",
+      pdf: "/yatra-2.pdf",
     },
     {
       id: 3,
@@ -37,7 +39,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra3.duration",
       descriptionKey: "yatras.yatra3.description",
       imageAltKey: "yatras.yatra3.imageAlt",
-      pdf: "/admissionletter.pdf",
+      image: "/Hero3.jpeg",
+      pdf: "/yatra-3.pdf",
     },
     {
       id: 4,
@@ -47,7 +50,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra4.duration",
       descriptionKey: "yatras.yatra4.description",
       imageAltKey: "yatras.yatra4.imageAlt",
-      pdf: "/admissionletter.pdf",
+      image: "/Hero4.jpeg",
+      pdf: "/yatra-4.pdf",
     },
   ];
 
@@ -91,7 +95,7 @@ const Yatras = () => {
                     <img
                       className="w-full h-full object-cover"
                       alt={t(yatra.imageAltKey)}
-                      src="https://images.unsplash.com/photo-1688053010570-8db731d66948"
+                      src={yatra.image}
                     />
                     <div className="absolute top-4 right-4">
                       <span
