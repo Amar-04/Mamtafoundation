@@ -2,6 +2,7 @@ import HeroSlider from "../components/home/HeroSlider";
 import AboutUs from "../components/home/AboutUs";
 import Causes from "../components/home/Causes";
 import ReviewsSection from "../components/home/Reviews";
+import Socials from "../components/home/Socials";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <AboutUs />
       <Causes />
       <ReviewsSection />
+      <Socials />
     </>
   );
 };

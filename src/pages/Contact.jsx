@@ -67,19 +67,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 98765 43210", "+91 87654 32109"],
+      details: ["9313840744", "9898779539"],
       description: "Call us for immediate assistance",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@divineyatra.com", "bookings@divineyatra.com"],
+      details: ["mamtafoundation1977@gmail.com"],
       description: "Send us your queries anytime",
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Temple Street", "Sacred City, India 110001"],
+      details: ["4f-22, 4th Floor, Siddheshwar Plaza, New VIP Road, Vadodara, 390022"],
       description: "Visit our office for personal consultation",
     },
     {

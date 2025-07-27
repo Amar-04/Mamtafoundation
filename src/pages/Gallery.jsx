@@ -88,6 +88,36 @@ const galleryData = [
         alt: "Gangotri 2024",
         title: "Gangotri Glacier",
       },
+      {
+        id: 14,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 15,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 16,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 17,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+      {
+        id: 18,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
     ],
     videos: [
       {
@@ -104,6 +134,42 @@ const galleryData = [
       },
       {
         id: 3,
+        videoId: "ScMzIvxBSi4",
+        title: "Devotee Testimonials 2024",
+        description: "Heartfelt experiences from our pilgrims",
+      },
+      {
+        id: 4,
+        videoId: "dQw4w9WgXcQ",
+        title: "Char Dham Yatra 2024 Highlights",
+        description: "Complete journey to the four sacred shrines",
+      },
+      {
+        id: 5,
+        videoId: "9bZkp7q19f0",
+        title: "Kailash Mansarovar Experience",
+        description: "Spiritual journey to the abode of Lord Shiva",
+      },
+      {
+        id: 6,
+        videoId: "ScMzIvxBSi4",
+        title: "Devotee Testimonials 2024",
+        description: "Heartfelt experiences from our pilgrims",
+      },
+      {
+        id: 7,
+        videoId: "dQw4w9WgXcQ",
+        title: "Char Dham Yatra 2024 Highlights",
+        description: "Complete journey to the four sacred shrines",
+      },
+      {
+        id: 8,
+        videoId: "9bZkp7q19f0",
+        title: "Kailash Mansarovar Experience",
+        description: "Spiritual journey to the abode of Lord Shiva",
+      },
+      {
+        id: 9,
         videoId: "ScMzIvxBSi4",
         title: "Devotee Testimonials 2024",
         description: "Heartfelt experiences from our pilgrims",
