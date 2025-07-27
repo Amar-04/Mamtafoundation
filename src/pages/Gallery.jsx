@@ -8,6 +8,67 @@ import { Calendar, Filter } from "lucide-react";
 
 const galleryData = [
   {
+    year: 2025,
+    photos: [
+      {
+        id: 1,
+        src: "/placeholder.svg?height=300&width=400&text=Char+Dham+2024",
+        alt: "Char Dham Yatra 2025",
+        title: "Kedarnath Temple Visit",
+      },
+      {
+        id: 2,
+        src: "/placeholder.svg?height=300&width=400&text=Kailash+2024",
+        alt: "Kailash Mansarovar 2024",
+        title: "Mount Kailash Darshan",
+      },
+      {
+        id: 3,
+        src: "/placeholder.svg?height=300&width=400&text=Amarnath+2024",
+        alt: "Amarnath Yatra 2024",
+        title: "Sacred Ice Lingam",
+      },
+      {
+        id: 4,
+        src: "/placeholder.svg?height=300&width=400&text=Vaishno+Devi+2024",
+        alt: "Vaishno Devi 2024",
+        title: "Mata Vaishno Devi Shrine",
+      },
+      {
+        id: 5,
+        src: "/placeholder.svg?height=300&width=400&text=Badrinath+2024",
+        alt: "Badrinath 2024",
+        title: "Badrinath Temple",
+      },
+      {
+        id: 6,
+        src: "/placeholder.svg?height=300&width=400&text=Gangotri+2024",
+        alt: "Gangotri 2024",
+        title: "Gangotri Glacier",
+      },
+    ],
+    videos: [
+      {
+        id: 1,
+        videoId: "dQw4w9WgXcQ",
+        title: "Char Dham Yatra 2024 Highlights",
+        description: "Complete journey to the four sacred shrines",
+      },
+      {
+        id: 2,
+        videoId: "9bZkp7q19f0",
+        title: "Kailash Mansarovar Experience",
+        description: "Spiritual journey to the abode of Lord Shiva",
+      },
+      {
+        id: 3,
+        videoId: "ScMzIvxBSi4",
+        title: "Devotee Testimonials 2024",
+        description: "Heartfelt experiences from our pilgrims",
+      },
+    ],
+  },
+  {
     year: 2024,
     photos: [
       {
@@ -254,7 +315,7 @@ const galleryData = [
 ];
 
 export default function Gallery() {
-  const [selectedYear, setSelectedYear] = useState(2024);
+  const [selectedYear, setSelectedYear] = useState(2025);
   const [isLoading, setIsLoading] = useState(false);
   const [currentData, setCurrentData] = useState(galleryData[0]);
 

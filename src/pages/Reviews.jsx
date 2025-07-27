@@ -9,14 +9,6 @@ const Reviews = () => {
   const { toast } = useToast();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const handleVideoPlay = (reviewerName) => {
-    toast({
-      title:
-        "🚧 Video testimonial feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      duration: 3000,
-    });
-  };
-
   const videoTestimonials = [
     {
       id: 1,
@@ -24,8 +16,7 @@ const Reviews = () => {
       location: "Delhi",
       yatra: "Char Dham Yatra 2023",
       rating: 5,
-      thumbnail:
-        "Middle-aged man in traditional white clothes speaking to camera with temple background",
+      videoId: "vEYWL8cyoqA"
     },
     {
       id: 2,
@@ -33,7 +24,7 @@ const Reviews = () => {
       location: "Mumbai",
       yatra: "Tirupati Balaji Darshan",
       rating: 5,
-      thumbnail: "Smiling woman in saree with temple gopuram in background",
+      videoId: "Diq2WEXWqPU"
     },
     {
       id: 3,
@@ -41,8 +32,7 @@ const Reviews = () => {
       location: "Ahmedabad",
       yatra: "Dwarka & Somnath Yatra",
       rating: 5,
-      thumbnail:
-        "Young man in kurta speaking enthusiastically with ocean temple view",
+      videoId: "0KFrXdf-hh4"
     },
     {
       id: 4,
@@ -50,8 +40,7 @@ const Reviews = () => {
       location: "Kolkata",
       yatra: "Jagannath Puri Yatra",
       rating: 5,
-      thumbnail:
-        "Elderly woman with peaceful expression and temple chariot in background",
+      videoId: "qXbwdDZlwKc"
     },
   ];
 
@@ -129,7 +118,7 @@ const Reviews = () => {
                       <div className="relative h-64 md:h-80 overflow-hidden">
                         <iframe
                           className="w-full h-full"
-                          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1"
+                          src={`https://www.youtube.com/embed/${videoTestimonials[currentTestimonial].videoId}?autoplay=1&mute=1&rel=0&modestbranding=1&enablejsapi=1`}
                           title="YouTube video testimonial"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
