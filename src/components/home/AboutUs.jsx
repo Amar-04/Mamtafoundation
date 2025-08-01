@@ -48,22 +48,21 @@ const AboutUs = () => {
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.india")}
-                </span>
-                {" "}{t("aboutUs.experience")}
+                </span>{" "}
+                {t("aboutUs.experience")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.dharma")}
-                </span> {" "}
-                 {t("aboutUs.journeys")}
+                </span>{" "}
+                {t("aboutUs.journeys")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.comfort")}
-                </span>
-                {" "}
+                </span>{" "}
                 <span className="text-orange-500 font-semibold">
                   {t("aboutUs.devotion")}
                 </span>
-                 {t("aboutUs.and")}
+                {t("aboutUs.and")}
                 <span className="text-orange-500 font-semibold">
                   {" "}
                   {t("aboutUs.culture")}
@@ -74,6 +73,19 @@ const AboutUs = () => {
               <div className="absolute -bottom-12 -right-2 text-6xl text-orange-300 font-serif leading-none">
                 "
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="group mt-12 max-w-5xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-amber-400 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+
+            <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+              <img
+                src="partner.jpeg"
+                alt="Our Partner"
+                className="w-full h-64 sm:h-72 lg:h-96 object-cover rounded-2xl"
+              />
             </div>
           </div>
         </div>
