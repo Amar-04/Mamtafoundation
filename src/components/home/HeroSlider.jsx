@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -10,14 +10,20 @@ export default function HeroSlider() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Touch/swipe handling
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || isDragging) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 15000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, slides.length]);
+  }, [isAutoPlaying, slides.length, isDragging]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -25,30 +31,103 @@ export default function HeroSlider() {
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Touch event handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsDragging(true);
+    setIsAutoPlaying(false);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+
+    const swipeDistance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swiped left - go to next slide
+        goToNextSlide();
+      } else {
+        // Swiped right - go to previous slide
+        goToPrevSlide();
+      }
+    }
+
+    setIsDragging(false);
+    // Resume auto-play after a delay
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  // Mouse event handlers for desktop swipe support
+  const handleMouseDown = (e) => {
+    touchStartX.current = e.clientX;
+    setIsDragging(true);
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    touchEndX.current = e.clientX;
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+
+    const swipeDistance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        goToNextSlide();
+      } else {
+        goToPrevSlide();
+      }
+    }
+
+    setIsDragging(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      setTimeout(() => setIsAutoPlaying(true), 10000);
+    }
+  };
+
   return (
-    <section className=" mt-20 p-4 relative w-full min-h-screen bg-gradient-to-br from-orange-100 to-amber-200 overflow-hidden">
+    <section className="mt-20 p-4 relative w-full min-h-screen bg-gradient-to-br from-orange-100 to-amber-200 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100&text=Pattern')] bg-repeat"></div>
       </div>
 
       <div className="relative container mx-auto px-4 py-8 lg:py-16">
-        <div className="absolute flex gap-4 justify-end right-0 top-0 lg:top-1 lg:right-1 text-[#1E2E73]">
-          <button
-            onClick={() => i18n.changeLanguage("en")}
-            className=" px-1 font-bold"
-          >
-            English
-          </button>
-          <p className="text-[#1E2E73] font-bold">|</p>
-          <button
-            onClick={() => i18n.changeLanguage("gu")}
-            className=" px-1 font-bold"
-          >
-            ગુજરાતી
-          </button>
-        </div>
-
-        <div className="relative">
+        <div
+          ref={sliderRef}
+          className="relative"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          style={{ userSelect: "none" }}
+        >
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -66,6 +145,7 @@ export default function HeroSlider() {
                       src={`/Hero${index + 1}.jpeg`}
                       alt={slide.title}
                       className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-2xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-300"
+                      draggable={false}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                   </div>
@@ -100,6 +180,47 @@ export default function HeroSlider() {
             </div>
           ))}
         </div>
+
+        {/* Navigation arrows - only visible on hover */}
+        <button
+          onClick={goToPrevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-orange-500 w-12 h-12 rounded-full shadow-lg opacity-0 hover:opacity-100 transition-all duration-300 flex items-center justify-center group-hover:opacity-100 z-10"
+          aria-label="Previous slide"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <button
+          onClick={goToNextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-orange-500 w-12 h-12 rounded-full shadow-lg opacity-0 hover:opacity-100 transition-all duration-300 flex items-center justify-center group-hover:opacity-100 z-10"
+          aria-label="Next slide"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
 
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-3">
           {slides.map((_, index) => (

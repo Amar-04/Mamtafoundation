@@ -79,7 +79,9 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Address",
-      details: ["4f-22, 4th Floor, Siddheshwar Plaza, New VIP Road, Vadodara, 390022"],
+      details: [
+        "4f-22, 4th Floor, Siddheshwar Plaza, New VIP Road, Vadodara, 390022",
+      ],
       description: "Visit our office for personal consultation",
     },
     {
@@ -92,8 +94,6 @@ const Contact = () => {
 
   const subjects = [
     "Yatra Booking Inquiry",
-    "Charity & Donation",
-    "Volunteer Opportunity",
     "General Information",
     "Feedback & Suggestions",
     "Other",
@@ -346,18 +346,15 @@ const Contact = () => {
                 Join thousands of satisfied pilgrims and embark on your
                 spiritual journey today.
               </p>
-              <Button
-                onClick={() =>
-                  toast({
-                    title:
-                      "🚧 Booking feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-                    duration: 3000,
-                  })
-                }
-                className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full"
+              <a
+                href="https://wa.me/919313840744?text=Hello%2C%20I'm%20interested%20in%20your%20temple%20tour%20services!"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Book Your Yatra Now
-              </Button>
+                <Button className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full">
+                  Book Your Yatra Now
+                </Button>
+              </a>
             </motion.div>
           </div>
         </section>

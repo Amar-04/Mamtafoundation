@@ -82,6 +82,16 @@
       }
     ]
   },
+  "socials": {
+    "title": "Connect With Us Online",
+    "subtitle": "Follow us on social media and stay updated with our latest yatras, stories, and events.",
+    "instagram": "Instagram",
+    "instagramText": "Scan to follow us on Instagram",
+    "facebook": "Facebook",
+    "facebookText": "Scan to like our Facebook page",
+    "youtube": "YouTube Channel",
+    "youtubeText": "Watch spiritual journeys, yatra stories & travel vlogs."
+  },
   "footer": {
     "organizationName": "Mamta Foundation Seva Samiti",
     "description": "Embark on sacred journeys to holy temples. Experience divine yatras with our spiritual travel organization dedicated to serving humanity.",

@@ -181,7 +181,7 @@ export default function CausesPage() {
             variants={fadeInVariants}
             className="text-center max-w-5xl mx-auto"
           >
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mt-16 mb-8">
               <div className="bg-gradient-to-r from-rose-500 to-orange-500 p-6 rounded-full shadow-2xl hover:scale-105 transition-transform duration-300">
                 <Heart className="h-12 w-12 text-white" />
               </div>

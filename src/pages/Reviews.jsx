@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import WhatsappReviews from "../components/WhatsappReviews";
 
 const Reviews = () => {
   const { toast } = useToast();
@@ -13,33 +14,33 @@ const Reviews = () => {
   const videoTestimonials = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      location: "Delhi",
-      yatra: "Char Dham Yatra 2023",
+      name: "Nandkishore Mehta",
+      location: "Anand",
+      yatra: "5 Jyotirling and Ashtvinayak Yatra",
       rating: 5,
       videoId: "vEYWL8cyoqA",
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      location: "Mumbai",
-      yatra: "Tirupati Balaji Darshan",
+      name: "Binita Solanki",
+      location: "Navsari",
+      yatra: "5 Jyotirling and Ashtvinayak Yatra",
       rating: 5,
       videoId: "Diq2WEXWqPU",
     },
     {
       id: 3,
-      name: "Amit Patel",
-      location: "Ahmedabad",
-      yatra: "Dwarka & Somnath Yatra",
+      name: "Yatree",
+      location: "Anand",
+      yatra: "Vrindavan and Mathura Yatra",
       rating: 5,
       videoId: "0KFrXdf-hh4",
     },
     {
       id: 4,
-      name: "Sunita Devi",
-      location: "Kolkata",
-      yatra: "Jagannath Puri Yatra",
+      name: "Yatree",
+      location: "Anand",
+      yatra: "Vrindavan and Mathura Yatra",
       rating: 5,
       videoId: "qXbwdDZlwKc",
     },
@@ -189,60 +190,6 @@ const Reviews = () => {
               </div>
             </motion.div>
 
-            {/* Static Text Reviews */}
-            <div className="mt-20 max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center text-[#1E2E73] mb-8">
-                What Our Pilgrims Say
-              </h2>
-              <div className="relative bg-white shadow-xl rounded-2xl p-8">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentTestimonial}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <p className="text-lg text-gray-700 italic mb-4">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed fringilla efficitur orci, a fermentum lorem lacinia
-                      non."
-                    </p>
-                    <div className="text-right">
-                      <p className="font-bold text-[#1E2E73]">Ramesh Bhai</p>
-                      <p className="text-sm text-gray-500">
-                        Ayodhya Ram Mandir Yatra
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-                <div className="flex justify-between mt-6">
-                  <button
-                    onClick={() =>
-                      setCurrentTestimonial(
-                        (prev) =>
-                          (prev - 1 + videoTestimonials.length) %
-                          videoTestimonials.length
-                      )
-                    }
-                    className="text-[#1E2E73] hover:text-[#7A1C1C] transition-colors"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-                  <button
-                    onClick={() =>
-                      setCurrentTestimonial(
-                        (prev) => (prev + 1) % videoTestimonials.length
-                      )
-                    }
-                    className="text-[#1E2E73] hover:text-[#7A1C1C] transition-colors"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -258,21 +205,19 @@ const Reviews = () => {
                 Join thousands of satisfied pilgrims and embark on your
                 spiritual journey today.
               </p>
-              <Button
-                onClick={() =>
-                  toast({
-                    title:
-                      "🚧 Booking feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-                    duration: 3000,
-                  })
-                }
-                className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full"
+              <a
+                href="https://wa.me/919313840744?text=Hello%2C%20I'm%20interested%20in%20your%20temple%20tour%20services!"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Book Your Yatra Now
-              </Button>
+                <Button className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full">
+                  Book Your Yatra Now
+                </Button>
+              </a>
             </motion.div>
           </div>
         </section>
+        <WhatsappReviews />
       </div>
     </>
   );
