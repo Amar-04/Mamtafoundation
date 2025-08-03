@@ -24,7 +24,7 @@ const Causes = () => {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             <span className="bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
-              {t("causes.title")}
+              {t("cause.title")}
             </span>
           </h2>
 
@@ -32,15 +32,15 @@ const Causes = () => {
 
           <div className="max-w-4xl mx-auto">
             <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700 font-medium mb-6">
-              {t("causes.p1.prefix")}{" "}
+              {t("cause.p1.prefix")}{" "}
               <span className="font-bold text-orange-700">
-                {t("causes.p1.orgName")}
+                {t("cause.p1.orgName")}
               </span>
-              {" "} {t("causes.p1.rest")}
+              {" "} {t("cause.p1.rest")}
             </p>
 
             <p className="text-lg sm:text-xl leading-relaxed text-gray-600">
-              {t("causes.p2")}
+              {t("cause.p2")}
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Causes = () => {
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
                   src="homeseva-1.jpeg"
-                  alt={t("causes.foodImageAlt")}
+                  alt={t("cause.foodImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />
               </div>
@@ -70,7 +70,7 @@ const Causes = () => {
               <div className="relative bg-white rounded-3xl p-3 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                 <img
                   src="/homeseva-2.jpeg"
-                  alt={t("causes.healthImageAlt")}
+                  alt={t("cause.healthImageAlt")}
                   className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-2xl"
                 />
               </div>
