@@ -14,11 +14,7 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
 
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: t("footer.socialLinks.facebook") },
-    { icon: Instagram, href: "#", label: t("footer.socialLinks.instagram") },
-    { icon: Youtube, href: "#", label: t("footer.socialLinks.youtube") },
-  ];
+  
 
   const quickLinks = [
     { name: t("footer.quickLinks.home"), path: "/" },
@@ -46,20 +42,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-6 max-w-md">
               {t("footer.description")}
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-[#7DC3E8] rounded-full flex items-center justify-center hover:bg-[#F4C402] transition-colors duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 text-[#1E2E73]" />
-                </motion.a>
-              ))}
-            </div>
+            
           </div>
 
           {/* Quick Links */}

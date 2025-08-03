@@ -4,8 +4,10 @@ import { Helmet } from "react-helmet";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -26,16 +28,14 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Please fill in all required fields",
+        title: t("contact.toast.fillFields"),
         duration: 3000,
       });
       return;
     }
 
-    // Store in localStorage for now
     const contacts = JSON.parse(
       localStorage.getItem("divine-yatra-contacts") || "[]"
     );
@@ -48,12 +48,11 @@ const Contact = () => {
     localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
 
     toast({
-      title: "Message sent successfully! 🙏",
-      description: "We'll get back to you within 24 hours.",
+      title: t("contact.toast.successTitle"),
+      description: t("contact.toast.successDesc"),
       duration: 5000,
     });
 
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -66,51 +65,48 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Phone",
+      title: t("contact.info.phone.title"),
       details: ["9313840744", "9898779539"],
-      description: "Call us for immediate assistance",
+      description: t("contact.info.phone.desc"),
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t("contact.info.email.title"),
       details: ["mamtafoundation1977@gmail.com"],
-      description: "Send us your queries anytime",
+      description: t("contact.info.email.desc"),
     },
     {
       icon: MapPin,
-      title: "Address",
-      details: [
-        "4f-22, 4th Floor, Siddheshwar Plaza, New VIP Road, Vadodara, 390022",
-      ],
-      description: "Visit our office for personal consultation",
+      title: t("contact.info.address.title"),
+      details: [t("contact.info.address.detail")],
+      description: t("contact.info.address.desc"),
     },
     {
       icon: Clock,
-      title: "Office Hours",
-      details: ["Mon - Sat: 9:00 AM - 7:00 PM", "Sun: 10:00 AM - 5:00 PM"],
-      description: "We're here to help during business hours",
+      title: t("contact.info.hours.title"),
+      details: [
+        t("contact.info.hours.weekdays"),
+        t("contact.info.hours.weekend"),
+      ],
+      description: t("contact.info.hours.desc"),
     },
   ];
 
   const subjects = [
-    "Yatra Booking Inquiry",
-    "General Information",
-    "Feedback & Suggestions",
-    "Other",
+    t("contact.form.subjects.booking"),
+    t("contact.form.subjects.info"),
+    t("contact.form.subjects.feedback"),
+    t("contact.form.subjects.other"),
   ];
 
   return (
     <>
       <Helmet>
-        <title>Contact Us - Get in Touch | Divine Yatra</title>
-        <meta
-          name="description"
-          content="Contact Divine Yatra for yatra bookings, charity inquiries, or general information. We're here to help you plan your spiritual journey."
-        />
+        <title>{t("contact.meta.title")}</title>
+        <meta name="description" content={t("contact.meta.description")} />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-[#FFF6D8] to-white pt-20">
-        {/* Header Section */}
         <section className="section-padding">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -120,17 +116,14 @@ const Contact = () => {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                Get in Touch
+                {t("contact.header.title")}
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Have questions about our yatras or want to contribute to our
-                charitable causes? We're here to help you on your spiritual
-                journey.
+                {t("contact.header.subtitle")}
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -140,7 +133,7 @@ const Contact = () => {
                 <div className="flex items-center mb-6">
                   <MessageCircle className="w-6 h-6 text-[#E30613] mr-3" />
                   <h2 className="text-2xl font-bold text-[#1E2E73]">
-                    Send us a Message
+                    {t("contact.form.title")}
                   </h2>
                 </div>
 
@@ -151,7 +144,7 @@ const Contact = () => {
                         htmlFor="name"
                         className="block text-sm font-medium text-[#1E2E73] mb-2"
                       >
-                        Full Name *
+                        {t("contact.form.nameLabel")} *
                       </label>
                       <input
                         type="text"
@@ -161,7 +154,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
-                        placeholder="Enter your full name"
+                        placeholder={t("contact.form.namePlaceholder")}
                       />
                     </div>
                     <div>
@@ -169,7 +162,7 @@ const Contact = () => {
                         htmlFor="email"
                         className="block text-sm font-medium text-[#1E2E73] mb-2"
                       >
-                        Email Address *
+                        {t("contact.form.emailLabel")} *
                       </label>
                       <input
                         type="email"
@@ -179,7 +172,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
-                        placeholder="Enter your email"
+                        placeholder={t("contact.form.emailPlaceholder")}
                       />
                     </div>
                   </div>
@@ -190,7 +183,7 @@ const Contact = () => {
                         htmlFor="phone"
                         className="block text-sm font-medium text-[#1E2E73] mb-2"
                       >
-                        Phone Number
+                        {t("contact.form.phoneLabel")}
                       </label>
                       <input
                         type="tel"
@@ -199,7 +192,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
-                        placeholder="Enter your phone number"
+                        placeholder={t("contact.form.phonePlaceholder")}
                       />
                     </div>
                     <div>
@@ -207,7 +200,7 @@ const Contact = () => {
                         htmlFor="subject"
                         className="block text-sm font-medium text-[#1E2E73] mb-2"
                       >
-                        Subject
+                        {t("contact.form.subjectLabel")}
                       </label>
                       <select
                         id="subject"
@@ -216,7 +209,9 @@ const Contact = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
                       >
-                        <option value="">Select a subject</option>
+                        <option value="">
+                          {t("contact.form.subjectPlaceholder")}
+                        </option>
                         {subjects.map((subject) => (
                           <option key={subject} value={subject}>
                             {subject}
@@ -231,7 +226,7 @@ const Contact = () => {
                       htmlFor="message"
                       className="block text-sm font-medium text-[#1E2E73] mb-2"
                     >
-                      Message *
+                      {t("contact.form.messageLabel")} *
                     </label>
                     <textarea
                       id="message"
@@ -241,7 +236,7 @@ const Contact = () => {
                       required
                       rows={6}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors resize-none"
-                      placeholder="Tell us how we can help you..."
+                      placeholder={t("contact.form.messagePlaceholder")}
                     />
                   </div>
 
@@ -249,18 +244,17 @@ const Contact = () => {
                     type="submit"
                     className="w-full bg-[#E30613] hover:bg-[#E30613]/90 text-white py-3 rounded-lg font-semibold"
                   >
-                    Send Message
+                    {t("contact.form.submitButton")}
                     <Send className="ml-2 w-5 h-5" />
                   </Button>
                 </form>
                 <img
-                  src="/contact1.jpeg" // Adjust path as needed
-                  alt="Our Office"
+                  src="/contact1.jpeg"
+                  alt={t("contact.form.imageAlt")}
                   className="w-full h-auto object-cover mt-8"
                 />
               </motion.div>
 
-              {/* Contact Information */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -269,7 +263,7 @@ const Contact = () => {
               >
                 <div>
                   <h2 className="text-2xl font-bold text-[#1E2E73] mb-6">
-                    Contact Information
+                    {t("contact.info.title")}
                   </h2>
                   <div className="space-y-6">
                     {contactInfo.map((info, index) => (
@@ -306,7 +300,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Map Placeholder */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -314,11 +307,11 @@ const Contact = () => {
                   className="bg-white rounded-xl p-6 shadow-lg"
                 >
                   <h3 className="text-lg font-semibold text-[#1E2E73] mb-4">
-                    Find Us
+                    {t("contact.map.title")}
                   </h3>
                   <div className="h-64 rounded-lg overflow-hidden">
                     <iframe
-                      title="Mamta Foundation Location"
+                      title={t("contact.map.iframeTitle")}
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.016404435225!2d73.22977237384073!3d22.315219342357295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf72a18b231f%3A0x87de41e4817b54ed!2sMAMTA%20FOUNDATION%20SEVA%20SAMITI!5e0!3m2!1sen!2sin!4v1753606663984!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
@@ -340,11 +333,10 @@ const Contact = () => {
               className="text-center mt-16 p-8 bg-gradient-to-r from-[#1E2E73] to-[#7A1C1C] rounded-2xl text-white"
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready to Create Your Own Divine Story?
+                {t("contact.cta.title")}
               </h2>
               <p className="text-lg mb-6 opacity-90">
-                Join thousands of satisfied pilgrims and embark on your
-                spiritual journey today.
+                {t("contact.cta.subtitle")}
               </p>
               <a
                 href="https://wa.me/919313840744?text=Hello%2C%20I'm%20interested%20in%20your%20temple%20tour%20services!"
@@ -352,7 +344,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 <Button className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full">
-                  Book Your Yatra Now
+                  {t("contact.cta.button")}
                 </Button>
               </a>
             </motion.div>

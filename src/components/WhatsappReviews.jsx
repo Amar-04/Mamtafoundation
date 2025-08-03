@@ -1,152 +1,155 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const whatsappReviews = [
-  {
-    id: 1,
-    src: "wp-1.jpeg",
-    alt: "WhatsApp review from Dilip Soni",
-    customerName: "Dilip Soni",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 2,
-    src: "wp-2.jpeg",
-    alt: "WhatsApp review from Vijay Oza",
-    customerName: "Vijay Oza",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 3,
-    src: "wp-3.jpeg",
-    alt: "WhatsApp review from Rajesh Thakkar (Patan)",
-    customerName: "Rajesh Thakkar (Patan)",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 4,
-    src: "wp-4.jpeg",
-    alt: "WhatsApp review from Purnimaben",
-    customerName: "Purnimaben",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 5,
-    src: "wp-5.jpeg",
-    alt: "WhatsApp review from Shailendra and Manisha Raj",
-    customerName: "Shailendra and Manisha Raj",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 6,
-    src: "wp-6.jpeg",
-    alt: "WhatsApp review from Dilipbhai",
-    customerName: "Dilipbhai",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 7,
-    src: "wp-7.jpeg",
-    alt: "WhatsApp review from Madansinh Bhai (Ankleshwar)",
-    customerName: "Madansinh Bhai (Ankleshwar)",
-    yatraName: "Tirupati Yatra",
-    date: "2023",
-  },
-  {
-    id: 8,
-    src: "wp-8.jpeg",
-    alt: "WhatsApp review from Maheshbhai",
-    customerName: "Maheshbhai",
-    yatraName: "Tirupati Yatra",
-    date: "2023",
-  },
-  {
-    id: 9,
-    src: "wp-9.jpeg",
-    alt: "WhatsApp review from Surendranagar Yatree",
-    customerName: "Surendranagar Yatree",
-    yatraName: "Tirupati Yatra",
-    date: " 2023",
-  },
-  {
-    id: 10,
-    src: "wp-10.jpeg",
-    alt: "WhatsApp review from Vasantbhai Patil (Ankleshwar)",
-    customerName: "Vasantbhai Patil (Ankleshwar)",
-    yatraName: "Tirupati Yatra",
-    date: "2023",
-  },
-  {
-    id: 11,
-    src: "wp-11.jpeg",
-    alt: "WhatsApp review from Akash Sharma",
-    customerName: "Akash Sharma",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-  {
-    id: 12,
-    src: "wp-12.jpeg",
-    alt: "WhatsApp review from Dhruv Patel",
-    customerName: "Dhruv Patel",
-    yatraName: "Tirupati Yatra",
-    date: "2022",
-  },
-];
-
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const modalVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.8,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
 const WhatsappReviews = () => {
+  const { t } = useTranslation();
   const [selectedReview, setSelectedReview] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const whatsappReviews = [
+    {
+      id: 1,
+      src: "wp-1.jpeg",
+      alt: t("whatsappReviews.reviews.dilipSoni.alt"),
+      customerName: t("whatsappReviews.reviews.dilipSoni.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 2,
+      src: "wp-2.jpeg",
+      alt: t("whatsappReviews.reviews.vijayOza.alt"),
+      customerName: t("whatsappReviews.reviews.vijayOza.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 3,
+      src: "wp-3.jpeg",
+      alt: t("whatsappReviews.reviews.rajeshThakkar.alt"),
+      customerName: t("whatsappReviews.reviews.rajeshThakkar.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 4,
+      src: "wp-4.jpeg",
+      alt: t("whatsappReviews.reviews.purnimaben.alt"),
+      customerName: t("whatsappReviews.reviews.purnimaben.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 5,
+      src: "wp-5.jpeg",
+      alt: t("whatsappReviews.reviews.shailendraManisha.alt"),
+      customerName: t("whatsappReviews.reviews.shailendraManisha.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 6,
+      src: "wp-6.jpeg",
+      alt: t("whatsappReviews.reviews.dilipbhai.alt"),
+      customerName: t("whatsappReviews.reviews.dilipbhai.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 7,
+      src: "wp-7.jpeg",
+      alt: t("whatsappReviews.reviews.madansinhBhai.alt"),
+      customerName: t("whatsappReviews.reviews.madansinhBhai.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2023",
+    },
+    {
+      id: 8,
+      src: "wp-8.jpeg",
+      alt: t("whatsappReviews.reviews.maheshbhai.alt"),
+      customerName: t("whatsappReviews.reviews.maheshbhai.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2023",
+    },
+    {
+      id: 9,
+      src: "wp-9.jpeg",
+      alt: t("whatsappReviews.reviews.surendraYatree.alt"),
+      customerName: t("whatsappReviews.reviews.surendraYatree.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2023",
+    },
+    {
+      id: 10,
+      src: "wp-10.jpeg",
+      alt: t("whatsappReviews.reviews.vasantbhaiPatil.alt"),
+      customerName: t("whatsappReviews.reviews.vasantbhaiPatil.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2023",
+    },
+    {
+      id: 11,
+      src: "wp-11.jpeg",
+      alt: t("whatsappReviews.reviews.akashSharma.alt"),
+      customerName: t("whatsappReviews.reviews.akashSharma.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+    {
+      id: 12,
+      src: "wp-12.jpeg",
+      alt: t("whatsappReviews.reviews.dhruvPatel.alt"),
+      customerName: t("whatsappReviews.reviews.dhruvPatel.name"),
+      yatraName: t("whatsappReviews.yatra.tirupati"),
+      date: "2022",
+    },
+  ];
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
 
   const openLightbox = (review) => {
     setSelectedReview(review);
@@ -225,7 +228,7 @@ const WhatsappReviews = () => {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
             <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              WhatsApp Reviews
+              {t("whatsappReviews.title")}
             </span>
           </motion.h2>
 
@@ -238,8 +241,7 @@ const WhatsappReviews = () => {
             variants={itemVariants}
             className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Real testimonials from our satisfied devotees shared directly
-            through WhatsApp
+            {t("whatsappReviews.subtitle")}
           </motion.p>
         </motion.div>
 
@@ -314,7 +316,7 @@ const WhatsappReviews = () => {
                 {/* Review info */}
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-600">
-                    Click to view full review
+                    {t("whatsappReviews.clickToView")}
                   </p>
                 </div>
               </div>
@@ -361,6 +363,7 @@ const WhatsappReviews = () => {
                   className="p-2 hover:bg-white/20 rounded-full transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label={t("whatsappReviews.modal.close")}
                 >
                   <X className="h-5 w-5" />
                 </motion.button>
@@ -380,6 +383,7 @@ const WhatsappReviews = () => {
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label={t("whatsappReviews.modal.previous")}
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </motion.button>
@@ -389,6 +393,7 @@ const WhatsappReviews = () => {
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label={t("whatsappReviews.modal.next")}
                 >
                   <ChevronRight className="h-5 w-5" />
                 </motion.button>
@@ -397,7 +402,10 @@ const WhatsappReviews = () => {
               {/* Modal Footer */}
               <div className="p-4 bg-gray-50 text-center">
                 <p className="text-sm text-gray-600">
-                  {currentIndex + 1} of {whatsappReviews.length} reviews
+                  {t("whatsappReviews.modal.counter", {
+                    current: currentIndex + 1,
+                    total: whatsappReviews.length
+                  })}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
                   {selectedReview.date}

@@ -1,88 +1,35 @@
-import {
-  Heart,
-  Users,
-  Utensils,
-  School,
-  BookOpen,
-  GlassWater,
-} from "lucide-react";
+import { Heart, GlassWater, School } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-const causeEvents = [
+const causeEvents = (t) => [
   {
     id: 1,
-    title: "Sharbat Vitran",
-    description:
-      "We organized a Sharbat Vitran — distributing refreshing drinks to help people stay cool during the summer. A small step toward spreading care and relief in our community.",
+    title: t("causes.sharbatVitran.title"),
+    description: t("causes.sharbatVitran.description"),
     icon: <GlassWater className="w-6 h-6" />,
     images: [
-      {
-        id: 1,
-        src: "/sarbat6.jpeg",
-        alt: "Volunteers distributing sharbat",
-      },
-      {
-        id: 2,
-        src: "/causes2.jpeg",
-        alt: "People enjoying refreshing drinks",
-      },
-      {
-        id: 3,
-        src: "/sarbat-1.jpeg",
-        alt: "Community members served with drinks",
-      },
-       {
-        id: 4,
-        src: "/causes4.jpeg",
-        alt: "Elderly receiving winter protection",
-        
-      },
-      {
-        id: 5,
-        src: "/sarbat-2.jpeg",
-        alt: "Team organizing blankets",
-       
-      },
-      {
-        id: 6,
-        src: "/causes6.jpeg",
-        alt: "Grateful families with blankets",
-        
-      },
+      { id: 1, src: "/sarbat6.jpeg", alt: t("causes.sharbatVitran.alt1") },
+      { id: 2, src: "/causes2.jpeg", alt: t("causes.sharbatVitran.alt2") },
+      { id: 3, src: "/sarbat-1.jpeg", alt: t("causes.sharbatVitran.alt3") },
+      { id: 4, src: "/causes4.jpeg", alt: t("causes.sharbatVitran.alt4") },
+      { id: 5, src: "/sarbat-2.jpeg", alt: t("causes.sharbatVitran.alt5") },
+      { id: 6, src: "/causes6.jpeg", alt: t("causes.sharbatVitran.alt6") },
     ],
   },
   {
     id: 2,
-    title: "Food and Books Distribution in School",
-    description:
-      "We organized a drive to distribute food and educational supplies at a village school, providing students with nutritious meals, books, and stationery. A small step to support learning and well-being in rural communities.",
+    title: t("causes.schoolDrive.title"),
+    description: t("causes.schoolDrive.description"),
     icon: <School className="h-6 w-6" />,
     isVideoSection: true,
     videos: [
-      {
-        id: "T9oxHzvNjOs",
-        title: "Distribution Highlights 1",
-      },
-      {
-        id: "SS6airb4Rdg",
-        title: "Children Receiving Supplies",
-      },
-      {
-        id: "1J4CFEEqpS8",
-        title: "Food Distribution Moment",
-      },
-      {
-        id: "OFxcWf0qM6Q",
-        title: "Food Distribution Moment",
-      },
-      {
-        id: "TxMI-Y6-KuI",
-        title: "Food Distribution Moment",
-      },
-      {
-        id: "5hOisDo5P6I",
-        title: "Food Distribution Moment",
-      },
+      { id: "T9oxHzvNjOs", title: t("causes.schoolDrive.video1") },
+      { id: "SS6airb4Rdg", title: t("causes.schoolDrive.video2") },
+      { id: "1J4CFEEqpS8", title: t("causes.schoolDrive.video3") },
+      { id: "OFxcWf0qM6Q", title: t("causes.schoolDrive.video4") },
+      { id: "TxMI-Y6-KuI", title: t("causes.schoolDrive.video5") },
+      { id: "5hOisDo5P6I", title: t("causes.schoolDrive.video6") },
     ],
   },
 ];
@@ -96,74 +43,72 @@ const fadeInVariants = {
   },
 };
 
-const CauseEventSection = ({ event }) => {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeInVariants}
-      className="mb-16"
-    >
-      <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 p-8 lg:p-12">
-        {/* Header */}
-        <div className="text-center mb-8 lg:mb-12">
-          <div className="flex justify-center mb-4">
-            <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-full shadow-lg">
-              {event.icon}
-            </div>
+const CauseEventSection = ({ event }) => (
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={fadeInVariants}
+    className="mb-16"
+  >
+    <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 p-8 lg:p-12">
+      <div className="text-center mb-8 lg:mb-12">
+        <div className="flex justify-center mb-4">
+          <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-full shadow-lg">
+            {event.icon}
           </div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-            {event.title}
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            {event.description}
-          </p>
         </div>
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+          {event.title}
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-6"></div>
+        <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+          {event.description}
+        </p>
+      </div>
 
-        {/* Media Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {event.isVideoSection
-            ? event.videos.map((video) => (
-                <div
-                  key={video.id}
-                  className="h-52 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                >
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id}`}
-                    title={video.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
-              ))
-            : event.images.map((image) => (
-                <div
-                  key={image.id}
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-amber-400 rounded-2xl transform rotate-1"></div>
-
-                  <div className="relative bg-white rounded-2xl p-2 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
-                    <div className="relative overflow-hidden rounded-xl">
-                      <img
-                        src={image.src || "/placeholder.svg"}
-                        alt={image.alt}
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+      {/* Media Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {event.isVideoSection
+          ? event.videos.map((video) => (
+              <div
+                key={video.id}
+                className="h-52 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            ))
+          : event.images.map((image) => (
+              <div
+                key={image.id}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-amber-400 rounded-2xl transform rotate-1"></div>
+                <div className="relative bg-white rounded-2xl p-2 transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+                  <div className="relative overflow-hidden rounded-xl">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                 </div>
-              ))}
-        </div>
+              </div>
+            ))}
       </div>
-    </motion.div>
-  );
-};
+    </div>
+  </motion.div>
+);
 
 export default function CausesPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50">
       {/* Header Section */}
@@ -188,7 +133,7 @@ export default function CausesPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
               <span className="bg-gradient-to-r from-rose-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
-                Our Sacred Causes
+                {t("causes.title")}
               </span>
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 mx-auto rounded-full mb-8"></div>
@@ -198,11 +143,7 @@ export default function CausesPage() {
                   "
                 </div>
                 <p className="text-xl sm:text-2xl lg:text-3xl leading-relaxed text-gray-800 font-medium pl-8">
-                  We at{" "}
-                  <span className="font-bold text-orange-700">
-                    Mamta Foundation
-                  </span>{" "}
-                 believe that true spiritual fulfillment comes through serving others. As we guide devotees on sacred yatras across India, we simultaneously extend our hands to uplift the society.
+                  {t("causes.header")}
                 </p>
                 <div className="absolute -bottom-4 right-0 text-6xl text-orange-300 font-serif leading-none transform rotate-180">
                   "
@@ -216,7 +157,7 @@ export default function CausesPage() {
       {/* Causes Section */}
       <section className="py-8 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {causeEvents.map((event) => (
+          {causeEvents(t).map((event) => (
             <CauseEventSection key={event.id} event={event} />
           ))}
         </div>

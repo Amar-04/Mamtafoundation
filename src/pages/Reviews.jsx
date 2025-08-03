@@ -4,43 +4,45 @@ import { Helmet } from "react-helmet";
 import { Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslation } from "react-i18next";
 import WhatsappReviews from "../components/WhatsappReviews";
 
 const Reviews = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const playerRef = useRef(null);
 
   const videoTestimonials = [
     {
       id: 1,
-      name: "Nandkishore Mehta",
-      location: "Anand",
-      yatra: "5 Jyotirling and Ashtvinayak Yatra",
+      name: t("testimonials.names.nandkishore"),
+      location: t("testimonials.locations.anand"),
+      yatra: t("testimonials.yatra.jyotirling"),
       rating: 5,
       videoId: "vEYWL8cyoqA",
     },
     {
       id: 2,
-      name: "Binita Solanki",
-      location: "Navsari",
-      yatra: "5 Jyotirling and Ashtvinayak Yatra",
+      name: t("testimonials.names.binita"),
+      location: t("testimonials.locations.navsari"),
+      yatra: t("testimonials.yatra.jyotirling"),
       rating: 5,
       videoId: "Diq2WEXWqPU",
     },
     {
       id: 3,
-      name: "Yatree",
-      location: "Anand",
-      yatra: "Vrindavan and Mathura Yatra",
+      name: t("testimonials.names.yatree"),
+      location: t("testimonials.locations.anand"),
+      yatra: t("testimonials.yatra.vrindavan"),
       rating: 5,
       videoId: "0KFrXdf-hh4",
     },
     {
       id: 4,
-      name: "Yatree",
-      location: "Anand",
-      yatra: "Vrindavan and Mathura Yatra",
+      name: t("testimonials.names.yatree"),
+      location: t("testimonials.locations.anand"),
+      yatra: t("testimonials.yatra.vrindavan"),
       rating: 5,
       videoId: "qXbwdDZlwKc",
     },
@@ -80,7 +82,7 @@ const Reviews = () => {
           },
         });
       }
-    }, 300); // Poll every 300ms until iframe is ready
+    }, 300);
 
     return () => {
       clearInterval(interval);
@@ -93,12 +95,10 @@ const Reviews = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Reviews & Testimonials - Pilgrim Experiences | Divine Yatra
-        </title>
+        <title>{t("meta.title")}</title>
         <meta
           name="description"
-          content="Read authentic reviews and watch video testimonials from pilgrims who experienced divine journeys with us."
+          content={t("meta.description")}
         />
       </Helmet>
 
@@ -112,11 +112,10 @@ const Reviews = () => {
               className="text-center mb-16"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                Testimonials
+                {t("page.title")}
               </h1>
               <p className="text-lg text-[#1E2E73] max-w-3xl mx-auto">
-                Hear from thousands of satisfied pilgrims who experienced divine
-                journeys.
+                {t("page.subtitle")}
               </p>
             </motion.div>
 
@@ -141,8 +140,8 @@ const Reviews = () => {
                         <iframe
                           id={`yt-player-${currentTestimonial}`}
                           className="w-full h-full"
-                          src={`https://www.youtube.com/embed/${videoTestimonials[currentTestimonial].videoId}?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1`}
-                          title="YouTube video testimonial"
+                          src={`https://www.youtube.com/embed/${videoTestimonials[currentTestimonial].videoId}?enablejsapi=1&autoplay=1&rel=0&modestbranding=1`}
+                          title={t("video.title")}
                           frameBorder="0"
                           allow="autoplay; encrypted-media"
                           allowFullScreen
@@ -184,6 +183,7 @@ const Reviews = () => {
                           ? "bg-[#E30613]"
                           : "bg-gray-300"
                       }`}
+                      aria-label={t("navigation.testimonial", { number: index + 1 })}
                     />
                   ))}
                 </div>
@@ -199,19 +199,18 @@ const Reviews = () => {
               className="text-center mt-16 p-8 bg-gradient-to-r from-[#1E2E73] to-[#7A1C1C] rounded-2xl text-white"
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready to Create Your Own Divine Story?
+                {t("cta.title")}
               </h2>
               <p className="text-lg mb-6 opacity-90">
-                Join thousands of satisfied pilgrims and embark on your
-                spiritual journey today.
+                {t("cta.subtitle")}
               </p>
               <a
-                href="https://wa.me/919313840744?text=Hello%2C%20I'm%20interested%20in%20your%20temple%20tour%20services!"
+                href={`https://wa.me/919313840744?text=${encodeURIComponent(t("whatsapp.message"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button className="bg-[#F4C402] hover:bg-[#F4C402]/90 text-[#1E2E73] font-semibold px-8 py-3 rounded-full">
-                  Book Your Yatra Now
+                  {t("cta.button")}
                 </Button>
               </a>
             </motion.div>

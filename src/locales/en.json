@@ -159,5 +159,197 @@
       "description": "Experience the Char Dham Yatra. Journey through Badrinath, Kedarnath, Gangotri, and Yamunotri.",
       "imageAlt": "Coastal temple with Arabian Sea waves in the background"
     }
+  },
+  "meta": {
+    "title": "Reviews & Testimonials - Pilgrim Experiences | Divine Yatra",
+    "description": "Read authentic reviews and watch video testimonials from pilgrims who experienced divine journeys with us."
+  },
+  "page": {
+    "title": "Testimonials",
+    "subtitle": "Hear from thousands of satisfied pilgrims who experienced divine journeys."
+  },
+  "testimonials": {
+    "names": {
+      "nandkishore": "Nandkishore Mehta",
+      "binita": "Binita Solanki",
+      "yatree": "Yatree"
+    },
+    "locations": {
+      "anand": "Anand",
+      "navsari": "Navsari"
+    },
+    "yatra": {
+      "jyotirling": "5 Jyotirling and Ashtvinayak Yatra",
+      "vrindavan": "Vrindavan and Mathura Yatra"
+    }
+  },
+  "video": {
+    "title": "YouTube video testimonial"
+  },
+  "navigation": {
+    "testimonial": "Go to testimonial {{number}}"
+  },
+  "cta": {
+    "title": "Ready to Create Your Own Divine Story?",
+    "subtitle": "Join thousands of satisfied pilgrims and embark on your spiritual journey today.",
+    "button": "Book Your Yatra Now"
+  },
+  "whatsapp": {
+    "message": "Hello, I'm interested in your temple tour services!"
+  },
+  "whatsappReviews": {
+    "title": "WhatsApp Reviews",
+    "subtitle": "Real testimonials from our satisfied devotees shared directly through WhatsApp",
+    "clickToView": "Click to view full review",
+    "yatra": {
+      "tirupati": "Tirupati Yatra"
+    },
+    "reviews": {
+      "dilipSoni": {
+        "name": "Dilip Soni",
+        "alt": "WhatsApp review from Dilip Soni"
+      },
+      "vijayOza": {
+        "name": "Vijay Oza",
+        "alt": "WhatsApp review from Vijay Oza"
+      },
+      "rajeshThakkar": {
+        "name": "Rajesh Thakkar (Patan)",
+        "alt": "WhatsApp review from Rajesh Thakkar (Patan)"
+      },
+      "purnimaben": {
+        "name": "Purnimaben",
+        "alt": "WhatsApp review from Purnimaben"
+      },
+      "shailendraManisha": {
+        "name": "Shailendra and Manisha Raj",
+        "alt": "WhatsApp review from Shailendra and Manisha Raj"
+      },
+      "dilipbhai": {
+        "name": "Dilipbhai",
+        "alt": "WhatsApp review from Dilipbhai"
+      },
+      "madansinhBhai": {
+        "name": "Madansinh Bhai (Ankleshwar)",
+        "alt": "WhatsApp review from Madansinh Bhai (Ankleshwar)"
+      },
+      "maheshbhai": {
+        "name": "Maheshbhai",
+        "alt": "WhatsApp review from Maheshbhai"
+      },
+      "surendraYatree": {
+        "name": "Surendranagar Yatree",
+        "alt": "WhatsApp review from Surendranagar Yatree"
+      },
+      "vasantbhaiPatil": {
+        "name": "Vasantbhai Patil (Ankleshwar)",
+        "alt": "WhatsApp review from Vasantbhai Patil (Ankleshwar)"
+      },
+      "akashSharma": {
+        "name": "Akash Sharma",
+        "alt": "WhatsApp review from Akash Sharma"
+      },
+      "dhruvPatel": {
+        "name": "Dhruv Patel",
+        "alt": "WhatsApp review from Dhruv Patel"
+      }
+    },
+    "modal": {
+      "close": "Close modal",
+      "previous": "Previous review",
+      "next": "Next review",
+      "counter": "{{current}} of {{total}} reviews"
+    }
+  },
+  "causes": {
+    "title": "Our Sacred Causes",
+    "header": "We at Mamta Foundation believe that true spiritual fulfillment comes through serving others. As we guide devotees on sacred yatras across India, we simultaneously extend our hands to uplift the society.",
+    "sharbatVitran": {
+      "title": "Sharbat Vitran",
+      "description": "We organized a Sharbat Vitran — distributing refreshing drinks to help people stay cool during the summer. A small step toward spreading care and relief in our community.",
+      "alt1": "Volunteers distributing sharbat",
+      "alt2": "People enjoying refreshing drinks",
+      "alt3": "Community members served with drinks",
+      "alt4": "Elderly receiving winter protection",
+      "alt5": "Team organizing blankets",
+      "alt6": "Grateful families with blankets"
+    },
+    "schoolDrive": {
+      "title": "Food and Books Distribution in School",
+      "description": "We organized a drive to distribute food and educational supplies at a village school, providing students with nutritious meals, books, and stationery. A small step to support learning and well-being in rural communities.",
+      "video1": "Distribution Highlights 1",
+      "video2": "Children Receiving Supplies",
+      "video3": "Food Distribution Moment",
+      "video4": "Food Distribution Moment",
+      "video5": "Food Distribution Moment",
+      "video6": "Food Distribution Moment"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Us - Get in Touch | Divine Yatra",
+      "description": "Contact Divine Yatra for yatra bookings, charity inquiries, or general information. We're here to help you plan your spiritual journey."
+    },
+    "header": {
+      "title": "Get in Touch",
+      "subtitle": "Have questions about our yatras or want to contribute to our charitable causes? We're here to help you on your spiritual journey."
+    },
+    "form": {
+      "title": "Send us a Message",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submitButton": "Send Message",
+      "imageAlt": "Our Office",
+      "subjects": {
+        "booking": "Yatra Booking Inquiry",
+        "info": "General Information",
+        "feedback": "Feedback & Suggestions",
+        "other": "Other"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": {
+        "title": "Phone",
+        "desc": "Call us for immediate assistance"
+      },
+      "email": {
+        "title": "Email",
+        "desc": "Send us your queries anytime"
+      },
+      "address": {
+        "title": "Address",
+        "detail": "4f-22, 4th Floor, Siddheshwar Plaza, New VIP Road, Vadodara, 390022",
+        "desc": "Visit our office for personal consultation"
+      },
+      "hours": {
+        "title": "Office Hours",
+        "weekdays": "Mon - Sat: 9:00 AM - 7:00 PM",
+        "weekend": "Sun: 10:00 AM - 5:00 PM",
+        "desc": "We're here to help during business hours"
+      }
+    },
+    "map": {
+      "title": "Find Us",
+      "iframeTitle": "Mamta Foundation Location"
+    },
+    "cta": {
+      "title": "Ready to Create Your Own Divine Story?",
+      "subtitle": "Join thousands of satisfied pilgrims and embark on your spiritual journey today.",
+      "button": "Book Your Yatra Now"
+    },
+    "toast": {
+      "fillFields": "Please fill in all required fields",
+      "successTitle": "Message sent successfully! 🙏",
+      "successDesc": "We'll get back to you within 24 hours."
+    }
   }
 }
