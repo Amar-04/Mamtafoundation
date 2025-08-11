@@ -39,8 +39,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra3.duration",
       descriptionKey: "yatras.yatra3.description",
       imageAltKey: "yatras.yatra3.imageAlt",
-      image: "/Hero3.jpeg",
-      pdf: "/yatra-3.pdf",
+      image: "/Hero4.jpeg",
+      pdf: "/yatra-4.pdf",
     },
     {
       id: 4,
@@ -50,9 +50,10 @@ const Yatras = () => {
       durationKey: "yatras.yatra4.duration",
       descriptionKey: "yatras.yatra4.description",
       imageAltKey: "yatras.yatra4.imageAlt",
-      image: "/Hero4.jpeg",
-      pdf: "/yatra-4.pdf",
+      image: "/Hero3.jpeg",
+      pdf: "/yatra-3.pdf",
     },
+    
   ];
 
   return (

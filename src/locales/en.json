@@ -22,8 +22,8 @@
       "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari. Discover ancient temples, oceanfront shrines, and centuries of tradition in this unforgettable yatra through the divine south."
     },
     {
-      "title": "Char Dham Yatra",
-      "description": "Experience India’s most sacred pilgrimage — the Char Dham Yatra. Journey through the Himalayas to seek blessings at Badrinath, Kedarnath, Gangotri, and Yamunotri. A life-changing spiritual adventure awaits."
+      "title": "Ma Narmada Parikrama Bus Yatra",
+      "description": "Divine Maa Narmada Parikrama Yatra covering Amarkantak, Maheshwar and other sacred places."
     }
   ],
   "explore_button": "Explore Yatras",
@@ -130,7 +130,7 @@
     "yatra1": {
       "name": "Khatushyam - Salasar - Sawariya Seth",
       "location": "Vadodara",
-      "dates": "August 14, 2025",
+      "dates": "August 18, 2025",
       "duration": "5 Days",
       "description": "Embark on a soulful journey to the most revered shrines of Rajasthan.",
       "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
@@ -138,26 +138,26 @@
     "yatra2": {
       "name": "Shravan Special 5 Jyotirlingas - Ashtvinayak",
       "location": "Vadodara",
-      "dates": "July 25 / August 13, 2025",
+      "dates": "August 21, 2025",
       "duration": "8 Days",
       "description": "Celebrate the month of Shravan with darshan of 5 Jyotirlingas and the divine Ashtvinayak temples",
       "imageAlt": "Ancient temple on the banks of river Ganges with evening aarti"
     },
     "yatra3": {
+      "name": "Ma Narmada Parikrama Bus Yatra",
+      "location": "Vadodara",
+      "dates": "3 October/24 October, 2025",
+      "duration": "14 Days",
+      "description": "Divine Maa Narmada Parikrama Yatra covering Amarkantak, Maheshwar and other sacred places.",
+      "imageAlt": "Coastal temple with Arabian Sea waves in the background"
+    },
+    "yatra4": {
       "name": "Tirupati – Madurai – Kanyakumari – Rameshwaram – Trivandrum",
       "location": "Vadodara",
       "dates": "November 8, 2025",
       "duration": "11 Days",
       "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari.",
       "imageAlt": "Magnificent South Indian temple with golden gopuram"
-    },
-    "yatra4": {
-      "name": "Char Dham Yatra",
-      "location": "Vadodara",
-      "dates": "september 8, 2025",
-      "duration": "12 Days",
-      "description": "Experience the Char Dham Yatra. Journey through Badrinath, Kedarnath, Gangotri, and Yamunotri.",
-      "imageAlt": "Coastal temple with Arabian Sea waves in the background"
     }
   },
   "meta": {

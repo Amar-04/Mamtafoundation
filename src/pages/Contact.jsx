@@ -5,10 +5,12 @@ import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslation } from "react-i18next";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,41 +27,108 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: t("contact.toast.fillFields"),
         duration: 3000,
       });
+      setIsSubmitting(false);
       return;
     }
 
-    const contacts = JSON.parse(
-      localStorage.getItem("divine-yatra-contacts") || "[]"
-    );
-    const newContact = {
-      ...formData,
-      id: Date.now(),
-      timestamp: new Date().toISOString(),
-    };
-    contacts.push(newContact);
-    localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
+    try {
+      // EmailJS configuration from environment variables (Vite format)
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    toast({
-      title: t("contact.toast.successTitle"),
-      description: t("contact.toast.successDesc"),
-      duration: 5000,
-    });
+      // Check if all environment variables are available
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS configuration missing. Please check your environment variables.');
+        console.log('Available env vars:', {
+          serviceId: serviceId ? 'present' : 'missing',
+          templateId: templateId ? 'present' : 'missing',
+          publicKey: publicKey ? 'present' : 'missing'
+        });
+        toast({
+          title: "Configuration Error",
+          description: "Email service is not properly configured. Please contact support.",
+          variant: "destructive",
+          duration: 5000,
+        });
+        setIsSubmitting(false);
+        return;
+      }
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+      // Prepare template parameters
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || 'Not provided',
+        subject: formData.subject || 'Contact Form Submission',
+        message: formData.message,
+        time: new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        to_name: 'Mamta FOundation Seva Samiti',
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        // Also save to localStorage as backup
+        const contacts = JSON.parse(
+          localStorage.getItem("divine-yatra-contacts") || "[]"
+        );
+        const newContact = {
+          ...formData,
+          id: Date.now(),
+          timestamp: new Date().toISOString(),
+        };
+        contacts.push(newContact);
+        localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
+
+        toast({
+          title: t("contact.toast.successTitle"),
+          description: t("contact.toast.successDesc"),
+          duration: 5000,
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -153,7 +222,8 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder={t("contact.form.namePlaceholder")}
                       />
                     </div>
@@ -171,7 +241,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder={t("contact.form.emailPlaceholder")}
                       />
                     </div>
@@ -191,7 +262,8 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder={t("contact.form.phonePlaceholder")}
                       />
                     </div>
@@ -207,7 +279,8 @@ const Contact = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <option value="">
                           {t("contact.form.subjectPlaceholder")}
@@ -234,18 +307,29 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
+                      disabled={isSubmitting}
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder={t("contact.form.messagePlaceholder")}
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-[#E30613] hover:bg-[#E30613]/90 text-white py-3 rounded-lg font-semibold"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#E30613] hover:bg-[#E30613]/90 text-white py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t("contact.form.submitButton")}
-                    <Send className="ml-2 w-5 h-5" />
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        {t("contact.form.submitButton")}
+                        <Send className="ml-2 w-5 h-5" />
+                      </>
+                    )}
                   </Button>
                 </form>
                 <img
