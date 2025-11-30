@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 const Yatras = () => {
   const { t } = useTranslation();
-  const phoneNumber = "919313840744"; // Use your number here
+  const phoneNumber = "919313840744";
 
   const yatras = [
     {
