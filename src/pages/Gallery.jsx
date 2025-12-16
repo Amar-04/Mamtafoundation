@@ -118,6 +118,42 @@ const galleryData = [
         alt: "",
         title: "5 Jyotirlinga and Ashtvinayak",
       },
+      {
+        id: 19,
+        src: "/2025-19.jpg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 20,
+        src: "/2025-20.jpg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 21,
+        src: "/2025-21.jpg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 22,
+        src: "/2025-22.jpg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 23,
+        src: "/2025-23.jpg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 24,
+        src: "/2025-24.jpg",
+        alt: "",
+        title: "",
+      },
     ],
     videos: [
       {
@@ -156,7 +192,12 @@ const galleryData = [
         title: "Yatri enjoying Food",
         description: "",
       },
-     
+      {
+        id: 7,
+        videoId: "6lXUjC0EuGQ",
+        title: "Yatri enjoying Garba and Railway Station",
+        description: "",
+      },
     ],
   },
   {
@@ -493,7 +534,7 @@ export default function Gallery() {
           {/* Photos Grid */}
           <div className="mb-12 lg:mb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {currentData.photos.map((photo, index) => (
+              {[...currentData.photos].reverse().map((photo, index) => (
                 <div
                   key={photo.id}
                   className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
