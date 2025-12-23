@@ -172,15 +172,18 @@
     "names": {
       "nandkishore": "Nandkishore Mehta",
       "binita": "Binita Solanki",
-      "yatree": "Yatree"
+      "yatree": "Yatree",
+      "father": "Yatree with their 85 year old father"
     },
     "locations": {
       "anand": "Anand",
-      "navsari": "Navsari"
+      "navsari": "Navsari",
+      "usa": "USA"
     },
     "yatra": {
       "jyotirling": "5 Jyotirling and Ashtvinayak Yatra",
-      "vrindavan": "Vrindavan and Mathura Yatra"
+      "vrindavan": "Vrindavan and Mathura Yatra",
+      "south": "South Yatra"
     }
   },
   "video": {

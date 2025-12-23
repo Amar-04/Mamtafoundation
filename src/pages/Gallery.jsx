@@ -154,6 +154,36 @@ const galleryData = [
         alt: "",
         title: "",
       },
+      {
+        id: 25,
+        src: "/2025-25.jpeg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 26,
+        src: "/2025-26.jpeg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 27,
+        src: "/2025-27.jpeg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 28,
+        src: "/2025-28.jpeg",
+        alt: "",
+        title: "",
+      },
+      {
+        id: 29,
+        src: "/2025-29.jpeg",
+        alt: "",
+        title: "",
+      },
     ],
     videos: [
       {
