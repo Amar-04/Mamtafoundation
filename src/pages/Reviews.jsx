@@ -32,6 +32,14 @@ const Reviews = () => {
     },
     {
       id: 3,
+      name: t("testimonials.names.vinod"),
+      location: "",
+      yatra: t("testimonials.yatra.south"),
+      rating: 5,
+      videoId: "CerQO0EHkvg",
+    },
+    {
+      id: 4,
       name: t("testimonials.names.nandkishore"),
       location: t("testimonials.locations.anand"),
       yatra: t("testimonials.yatra.jyotirling"),
@@ -39,7 +47,7 @@ const Reviews = () => {
       videoId: "vEYWL8cyoqA",
     },
     {
-      id: 4,
+      id: 5,
       name: t("testimonials.names.binita"),
       location: t("testimonials.locations.navsari"),
       yatra: t("testimonials.yatra.jyotirling"),
@@ -47,7 +55,7 @@ const Reviews = () => {
       videoId: "Diq2WEXWqPU",
     },
     {
-      id: 5,
+      id: 6,
       name: t("testimonials.names.yatree"),
       location: t("testimonials.locations.anand"),
       yatra: t("testimonials.yatra.vrindavan"),
@@ -55,7 +63,7 @@ const Reviews = () => {
       videoId: "0KFrXdf-hh4",
     },
     {
-      id: 6,
+      id: 7,
       name: t("testimonials.names.yatree"),
       location: t("testimonials.locations.anand"),
       yatra: t("testimonials.yatra.vrindavan"),

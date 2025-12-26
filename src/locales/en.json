@@ -173,7 +173,8 @@
       "nandkishore": "Nandkishore Mehta",
       "binita": "Binita Solanki",
       "yatree": "Yatree",
-      "father": "Yatree with their 85 year old father"
+      "father": "Yatree with their 85 year old father",
+      "vinod": "Vinodbhai Patel giving feedback on food, stay and overall arrangements"
     },
     "locations": {
       "anand": "Anand",
@@ -255,6 +256,14 @@
       "dhruvPatel": {
         "name": "Dhruv Patel",
         "alt": "WhatsApp review from Dhruv Patel"
+      },
+      "lalit": {
+        "name": "Lalitbhai",
+        "alt": "WhatsApp review from Lalitbhai"
+      },
+      "yatree": {
+        "name": "Yatree",
+        "alt": "WhatsApp review from Yatree"
       }
     },
     "modal": {

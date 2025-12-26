@@ -105,6 +105,22 @@ const WhatsappReviews = () => {
       yatraName: t("whatsappReviews.yatra.tirupati"),
       date: "2022",
     },
+    {
+      id: 13,
+      src: "wp-13.jpeg",
+      alt: t("whatsappReviews.reviews.lalit.alt"),
+      customerName: t("whatsappReviews.reviews.lalit.name"),
+      yatraName: t("whatsappReviews.yatra.south"),
+      date: "2022",
+    },
+    {
+      id: 14,
+      src: "wp-14.jpeg",
+      alt: t("whatsappReviews.reviews.yatree.alt"),
+      customerName: t("whatsappReviews.reviews.yatree.name"),
+      yatraName: t("whatsappReviews.yatra.south"),
+      date: "2022",
+    },
   ];
 
   // Animation variants
