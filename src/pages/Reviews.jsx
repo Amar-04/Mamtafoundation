@@ -36,7 +36,7 @@ const Reviews = () => {
       location: "",
       yatra: t("testimonials.yatra.south"),
       rating: 5,
-      videoId: "CerQO0EHkvg",
+      videoId: "jT369Ww38bo",
     },
     {
       id: 4,
