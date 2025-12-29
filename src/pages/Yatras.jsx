@@ -17,7 +17,7 @@ const Yatras = () => {
       durationKey: "yatras.yatra1.duration",
       descriptionKey: "yatras.yatra1.description",
       imageAltKey: "yatras.yatra1.imageAlt",
-      image: "/Hero1.jpeg",
+      image: "/Hero3.jpeg",
       pdf: "/yatra-1.pdf",
     },
     {
@@ -39,7 +39,7 @@ const Yatras = () => {
       durationKey: "yatras.yatra3.duration",
       descriptionKey: "yatras.yatra3.description",
       imageAltKey: "yatras.yatra3.imageAlt",
-      image: "/Hero4.jpeg",
+      image: "/Hero1.jpeg",
       pdf: "/yatra-4.pdf",
     },
     {
@@ -50,7 +50,7 @@ const Yatras = () => {
       durationKey: "yatras.yatra4.duration",
       descriptionKey: "yatras.yatra4.description",
       imageAltKey: "yatras.yatra4.imageAlt",
-      image: "/Hero3.jpeg",
+      image: "/Hero4.jpeg",
       pdf: "/yatra-3.pdf",
     },
     
