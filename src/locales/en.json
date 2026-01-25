@@ -14,6 +14,10 @@
       "description": "Pilgrimage by special train covering Jagannath Puri, Konark, Lingaraj, Gaya."
     },
     {
+      "title": "12-Day Sacred Char Dham Yatra 2026",
+      "description": "A divine journey through Yamunotri, Gangotri, Kedarnath and Badrinath."
+    },
+    {
       "title": "Ma Narmada Parikrama Bus Yatra",
       "description": "Divine Maa Narmada Parikrama Yatra covering Amarkantak, Maheshwar and other sacred places."
     },
@@ -135,36 +139,44 @@
     "yatra1": {
       "name": "Puri–Konark–Lingaraj–Gaya Darshan Yatra",
       "location": "Vadodara",
-      "dates": "February, 2026",
+      "dates": "4 April, 2026",
       "duration": "9 Days",
       "description": "Pilgrimage by special train covering Jagannath Puri, Konark, Lingaraj, Gaya.",
       "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
     },
     "yatra2": {
+      "name": "12-Day Sacred Char Dham Yatra 2026",
+      "location": "Vadodara",
+      "dates": "18 April, 2026",
+      "duration": "12 Days",
+      "description": "A divine journey through Yamunotri, Gangotri, Kedarnath and Badrinath",
+      "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
+    },
+    "yatra3": {
       "name": "Khatushyam - Salasar - Sawariya Seth",
       "location": "Vadodara",
-      "dates": "February, 2026",
+      "dates": "2026",
       "duration": "5 Days",
       "description": "Embark on a soulful journey to the most revered shrines of Rajasthan.",
       "imageAlt": "Sacred mountain temple with snow-capped peaks in background"
     },
-    "yatra3": {
+    "yatra4": {
       "name": "Special 5 Jyotirlingas - Ashtvinayak",
       "location": "Vadodara",
-      "dates": "5 January, 2026",
+      "dates": "2026",
       "duration": "8 Days",
       "description": "Darshan of 5 Jyotirlingas and the divine Ashtvinayak temples",
       "imageAlt": "Ancient temple on the banks of river Ganges with evening aarti"
     },
-    "yatra4": {
+    "yatra5": {
       "name": "Ma Narmada Parikrama Bus Yatra",
       "location": "Vadodara",
-      "dates": "16 December, 2025 / 1 January, 2026",
+      "dates": "9 February, 2026, 22 February, 2026",
       "duration": "14 Days",
       "description": "Divine Maa Narmada Parikrama Yatra covering Amarkantak, Maheshwar and other sacred places.",
       "imageAlt": "Coastal temple with Arabian Sea waves in the background"
     },
-    "yatra5": {
+    "yatra6": {
       "name": "Tirupati – Madurai – Kanyakumari – Rameshwaram – Trivandrum",
       "location": "Vadodara",
       "dates": "",

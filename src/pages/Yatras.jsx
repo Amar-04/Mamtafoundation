@@ -18,7 +18,7 @@ const Yatras = () => {
       descriptionKey: "yatras.yatra1.description",
       imageAltKey: "yatras.yatra1.imageAlt",
       image: "/Hero1.jpeg",
-      pdf: "/yatra-5.pdf",
+      pdf: "/purikonark.pdf",
     },
     {
       id: 2,
@@ -28,8 +28,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra2.duration",
       descriptionKey: "yatras.yatra2.description",
       imageAltKey: "yatras.yatra2.imageAlt",
-      image: "/Hero4.jpeg",
-      pdf: "/yatra-1.pdf",
+      image: "/Hero2.jpeg",
+      pdf: "/chardham.pdf",
     },
     {
       id: 3,
@@ -39,8 +39,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra3.duration",
       descriptionKey: "yatras.yatra3.description",
       imageAltKey: "yatras.yatra3.imageAlt",
-      image: "/Hero3.jpeg",
-      pdf: "/yatra-2.pdf",
+      image: "/Hero5.jpeg",
+      pdf: "/khatushyam.pdf",
     },
     {
       id: 4,
@@ -50,8 +50,8 @@ const Yatras = () => {
       durationKey: "yatras.yatra4.duration",
       descriptionKey: "yatras.yatra4.description",
       imageAltKey: "yatras.yatra4.imageAlt",
-      image: "/Hero2.jpeg",
-      pdf: "/yatra-4.pdf",
+      image: "/Hero4.jpeg",
+      pdf: "/jyotirling.pdf",
     },
     {
       id: 5,
@@ -61,8 +61,19 @@ const Yatras = () => {
       durationKey: "yatras.yatra5.duration",
       descriptionKey: "yatras.yatra5.description",
       imageAltKey: "yatras.yatra5.imageAlt",
-      image: "/Hero5.jpeg",
-      pdf: "/yatra-3.pdf",
+      image: "/Hero3.jpeg",
+      pdf: "/narmada.pdf",
+    },
+    {
+      id: 6,
+      nameKey: "yatras.yatra6.name",
+      locationKey: "yatras.yatra6.location",
+      datesKey: "yatras.yatra6.dates",
+      durationKey: "yatras.yatra6.duration",
+      descriptionKey: "yatras.yatra6.description",
+      imageAltKey: "yatras.yatra6.imageAlt",
+      image: "/Hero6.jpeg",
+      pdf: "/tirupati.pdf",
     },
     
   ];
