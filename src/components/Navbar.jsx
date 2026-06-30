@@ -41,9 +41,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-16 h-14 md:mr-2 flex items-center justify-center rounded-full bg-white">
+            <div className="w-18 h-16 mt-2 md:mr-2 flex items-center justify-center rounded-full">
               <img
-                src="/yatrasymbol.svg"
+                src="/yatralogo.png"
                 alt="Logo"
                 className="w-full h-full object-contain"
               />
