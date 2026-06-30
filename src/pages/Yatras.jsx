@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 
 const Yatras = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const phoneNumber = "919313840744";
 
   const yatras = [
@@ -78,6 +78,74 @@ const Yatras = () => {
     
   ];
 
+  const parseEnglishDateRange = (dateKey) => {
+    const englishDateText =
+      i18n.getResource("en", "translation", dateKey) || t(dateKey) || "";
+    const dateRegex = /\b(\d{1,2})\s+([A-Za-z]+),\s*(\d{4})\b/g;
+    const monthMap = {
+      january: 0,
+      february: 1,
+      march: 2,
+      april: 3,
+      may: 4,
+      june: 5,
+      july: 6,
+      august: 7,
+      september: 8,
+      october: 9,
+      november: 10,
+      december: 11,
+    };
+
+    const matches = [];
+    let match;
+
+    while ((match = dateRegex.exec(englishDateText)) !== null) {
+      const day = Number(match[1]);
+      const month = monthMap[match[2].toLowerCase()];
+      const year = Number(match[3]);
+
+      if (month !== undefined && day > 0 && day <= 31) {
+        matches.push(new Date(year, month, day));
+      }
+    }
+
+    if (!matches.length) {
+      return null;
+    }
+
+    matches.sort((a, b) => a - b);
+    return {
+      startDate: matches[0],
+      endDate: matches[matches.length - 1],
+    };
+  };
+
+  const getYatraStatus = (yatra) => {
+    const now = new Date();
+    const range = parseEnglishDateRange(yatra.datesKey);
+
+    if (!range) {
+      return "completed";
+    }
+
+    if (now < range.startDate) {
+      return "upcoming";
+    }
+
+    if (now > range.endDate) {
+      return "completed";
+    }
+
+    return "ongoing";
+  };
+
+  const statusStyles = {
+    upcoming: "bg-[#F4C402] text-[#1E2E73]",
+    ongoing: "bg-[#E30613] text-white",
+    completed: "bg-[#6B7280] text-white",
+  };
+
   return (
     <>
       <Helmet>
@@ -121,17 +189,16 @@ const Yatras = () => {
                       src={yatra.image}
                     />
                     <div className="absolute top-4 right-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          yatra.status === "upcoming"
-                            ? "bg-[#F4C402] text-[#1E2E73]"
-                            : "bg-[#E30613] text-white"
-                        }`}
-                      >
-                        {yatra.status === "upcoming"
-                          ? t("yatras.upcoming")
-                          : t("yatras.ongoing")}
-                      </span>
+                      {(() => {
+                        const status = getYatraStatus(yatra);
+                        return (
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyles[status]}`}
+                          >
+                            {t(`yatras.${status}`)}
+                          </span>
+                        );
+                      })()}
                     </div>
                   </div>
 
