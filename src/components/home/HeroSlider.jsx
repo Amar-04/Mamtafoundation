@@ -3,10 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
+import { getUpcomingOrMostRecentYatras } from "@/lib/utils";
 
 export default function HeroSlider() {
   const { t } = useTranslation();
-  const slides = t("slides", { returnObjects: true }); // Get array of slides
+  const displayYatras = getUpcomingOrMostRecentYatras();
+  
+  // Map yatras to slides format with translations
+  const slides = displayYatras.map((yatra) => ({
+    ...yatra,
+    title: t(yatra.nameKey),
+    description: t(yatra.descriptionKey),
+  }));
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -110,15 +118,19 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="mt-20 p-4 relative w-full min-h-screen bg-gradient-to-br from-orange-100 to-amber-200 overflow-hidden">
+    <section className="mt-20 p-4 relative w-full bg-gradient-to-br from-orange-100 to-amber-200 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100&text=Pattern')] bg-repeat"></div>
       </div>
 
       <div className="relative container mx-auto px-4 py-8 lg:py-16">
+        <h2 className="text-2xl lg:text-3xl font-bold text-left mb-6 text-[#1E2E73]">
+          {t("heroSlider.title")}
+        </h2>
+
         <div
           ref={sliderRef}
-          className="relative"
+          className="relative min-h-[80vh]"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -142,7 +154,7 @@ export default function HeroSlider() {
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-amber-400 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
                     <img
-                      src={`/Hero${index + 1}.jpeg`}
+                      src={slide.image}
                       alt={slide.title}
                       className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-2xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-300"
                       draggable={false}

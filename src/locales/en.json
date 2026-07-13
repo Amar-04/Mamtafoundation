@@ -36,6 +36,9 @@
     }
   ],
   "explore_button": "Explore Yatras",
+  "heroSlider": {
+    "title": "Our Upcoming Yatras"
+  },
   "aboutUs": {
     "title": "About Us",
     "mamta": "Mamta Foundation Seva Samiti's",
@@ -184,6 +187,14 @@
       "duration": "11 Days",
       "description": "Explore the spiritual gems of South India — from the majestic Tirupati Balaji to the shores of Kanyakumari.",
       "imageAlt": "Magnificent South Indian temple with golden gopuram"
+    },
+    "yatra7": {
+      "name": "Jagannath Dham Yatra",
+      "location": "Vadodara",
+      "dates": "24 November, 2026",
+      "duration": "14 Days",
+      "description": "Visit Jagannath, Konark, Gangasagar and sacred temples in one journey.",
+      "imageAlt": "Sacred temple with ancient architecture"
     }
   },
   "meta": {
