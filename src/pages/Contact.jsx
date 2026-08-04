@@ -350,37 +350,60 @@ const Contact = () => {
                     {t("contact.info.title")}
                   </h2>
                   <div className="space-y-6">
-                    {contactInfo.map((info, index) => (
-                      <motion.div
-                        key={info.title}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                        className="bg-white rounded-xl p-6 shadow-lg card-hover"
-                      >
-                        <div className="flex items-start space-x-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-[#F4C402] to-[#E30613] rounded-lg flex items-center justify-center flex-shrink-0">
-                            <info.icon className="w-6 h-6 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-lg font-semibold text-[#1E2E73] mb-2">
-                              {info.title}
-                            </h3>
-                            {info.details.map((detail, idx) => (
-                              <p
-                                key={idx}
-                                className="text-gray-700 font-medium"
-                              >
-                                {detail}
+                    {contactInfo.map((info, index) => {
+                      const isEmail = info.title === t("contact.info.email.title");
+                      const isAddress = info.title === t("contact.info.address.title");
+
+                      return (
+                        <motion.div
+                          key={info.title}
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                          className="bg-white rounded-xl p-6 shadow-lg card-hover"
+                        >
+                          <div className="flex items-start space-x-4">
+                            <div className="w-12 h-12 bg-gradient-to-r from-[#F4C402] to-[#E30613] rounded-lg flex items-center justify-center flex-shrink-0">
+                              <info.icon className="w-6 h-6 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-semibold text-[#1E2E73] mb-2">
+                                {info.title}
+                              </h3>
+                              {isEmail ? (
+                                <a
+                                  href="mailto:mamtafoundation1977@gmail.com"
+                                  className="text-gray-700 font-medium underline hover:text-[#E30613]"
+                                >
+                                  {info.details[0]}
+                                </a>
+                              ) : isAddress ? (
+                                <a
+                                  href="https://www.google.com/maps/search/?api=1&query=MAMTA+FOUNDATION+SEVA+SAMITI+Vadodara"
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-gray-700 font-medium underline hover:text-[#E30613]"
+                                >
+                                  {info.details[0]}
+                                </a>
+                              ) : (
+                                info.details.map((detail, idx) => (
+                                  <p
+                                    key={idx}
+                                    className="text-gray-700 font-medium"
+                                  >
+                                    {detail}
+                                  </p>
+                                ))
+                              )}
+                              <p className="text-sm text-gray-600 mt-1">
+                                {info.description}
                               </p>
-                            ))}
-                            <p className="text-sm text-gray-600 mt-1">
-                              {info.description}
-                            </p>
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    ))}
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
 
