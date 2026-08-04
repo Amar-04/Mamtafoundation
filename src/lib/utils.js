@@ -209,3 +209,8 @@ export const getSortedYatrasForDisplay = () => {
 	// Combine: upcoming + ongoing + completed
 	return [...upcoming, ...ongoing, ...completed].map((item) => item.yatra);
 };
+
+export const getYatraById = (id) => {
+	const yatraId = Number(id);
+	return yatras.find((yatra) => yatra.id === yatraId) || null;
+};

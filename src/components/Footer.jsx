@@ -31,9 +31,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#F4C402] to-[#E30613] flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-white" />
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-14 h-14 flex items-center justify-center overflow-hidden rounded-full bg-white/10 ring-1 ring-white/20">
+                <img
+                  src="/yatralogo.png"
+                  alt="Mamta Foundation logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="lg:text-2xl font-bold text-[#F4C402]">
                 {t("footer.organizationName")}

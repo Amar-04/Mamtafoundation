@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home.jsx";
 import Yatras from "@/pages/Yatras.jsx";
+import YatraDetail from "@/pages/YatraDetail.jsx";
 import Gallery from "@/pages/Gallery.jsx";
 import Reviews from "@/pages/Reviews.jsx";
 import Causes from "@/pages/Causes.jsx";
@@ -65,6 +66,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/yatras" element={<Yatras />} />
+            <Route path="/yatras/:yatraId" element={<YatraDetail />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/causes" element={<Causes />} />

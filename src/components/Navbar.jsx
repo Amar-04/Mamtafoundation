@@ -38,10 +38,10 @@ const Navbar = () => {
       }`}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-18 h-16 mt-2 md:mr-2 flex items-center justify-center rounded-full">
+            <div className="w-18 h-16 mt-2 md:mr-2 flex items-center justify-center rounded-full my-2">
               <img
                 src="/yatralogo.png"
                 alt="Logo"

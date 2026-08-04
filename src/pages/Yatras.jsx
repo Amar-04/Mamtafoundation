@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { Calendar, MapPin, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { getSortedYatrasForDisplay, getYatraStatus } from "@/lib/utils";
@@ -94,31 +95,39 @@ const Yatras = () => {
                     </div>
 
                     {/* Price and Book Button */}
-                    <div className="flex items-center justify-between">
-                      <a
-                        href={yatra.pdf}
-                        download
-                        className="inline-flex items-center gap-2 bg-orange-500 text-white font-semibold p-2 lg:px-3 lg:py-1
-                         rounded-xl shadow hover:bg-orange-600 transition"
-                      >
-                        <Download className="w-5 h-5" />
-                        {t("yatras.viewDetails")}
-                      </a>
-                      <a
-                        href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                          `Hello, I'm interested in your temple tour services for ${t(
-                            yatra.nameKey
-                          )}.`
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Chat on WhatsApp"
-                      >
-                        <Button className="bg-[#E30613] hover:bg-[#E30613]/90 text-white rounded-xl lg:rounded-full lg:px-6">
-                          {t("yatras.bookNow")}
-                        </Button>
-                      </a>
-                    </div>
+                    {(() => {
+                      const status = getYatraStatus(yatra);
+
+                      return (
+                        <div className="flex items-center justify-between gap-3">
+                          <Link
+                            to={`/yatras/${yatra.id}`}
+                            className="inline-flex items-center gap-2 bg-orange-500 text-white font-semibold p-2 lg:px-3 lg:py-1
+                             rounded-xl shadow hover:bg-orange-600 transition"
+                          >
+                            <Download className="w-5 h-5" />
+                            {t("yatras.viewDetails")}
+                          </Link>
+
+                          {status === "upcoming" && (
+                            <a
+                              href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                                `Hello, I'm interested in your temple tour services for ${t(
+                                  yatra.nameKey
+                                )}.`
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Chat on WhatsApp"
+                            >
+                              <Button className="bg-[#E30613] hover:bg-[#E30613]/90 text-white rounded-xl lg:rounded-full lg:px-6">
+                                {t("yatras.bookNow")}
+                              </Button>
+                            </a>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                 </motion.div>
               ))}
