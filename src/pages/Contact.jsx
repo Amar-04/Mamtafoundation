@@ -5,7 +5,6 @@ import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslation } from "react-i18next";
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -31,7 +30,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       toast({
         title: t("contact.toast.fillFields"),
         duration: 3000,
@@ -41,85 +40,45 @@ const Contact = () => {
     }
 
     try {
-      // EmailJS configuration from environment variables (Vite format)
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const whatsappMessage = [
+        "New contact form message",
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Subject: ${formData.subject || "Not provided"}`,
+        `Message: ${formData.message}`,
+      ].join("\n");
+      const whatsappUrl = `https://wa.me/919313840744?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
 
-      // Check if all environment variables are available
-      if (!serviceId || !templateId || !publicKey) {
-        console.error('EmailJS configuration missing. Please check your environment variables.');
-        console.log('Available env vars:', {
-          serviceId: serviceId ? 'present' : 'missing',
-          templateId: templateId ? 'present' : 'missing',
-          publicKey: publicKey ? 'present' : 'missing'
-        });
-        toast({
-          title: "Configuration Error",
-          description: "Email service is not properly configured. Please contact support.",
-          variant: "destructive",
-          duration: 5000,
-        });
-        setIsSubmitting(false);
-        return;
-      }
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
-      // Prepare template parameters
-      const templateParams = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || 'Not provided',
-        subject: formData.subject || 'Contact Form Submission',
-        message: formData.message,
-        time: new Date().toLocaleString('en-IN', {
-          timeZone: 'Asia/Kolkata',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }),
-        to_name: 'Mamta FOundation Seva Samiti',
-      };
-
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
+      const contacts = JSON.parse(
+        localStorage.getItem("divine-yatra-contacts") || "[]"
       );
+      contacts.push({
+        ...formData,
+        id: Date.now(),
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
 
-      if (response.status === 200) {
-        // Also save to localStorage as backup
-        const contacts = JSON.parse(
-          localStorage.getItem("divine-yatra-contacts") || "[]"
-        );
-        const newContact = {
-          ...formData,
-          id: Date.now(),
-          timestamp: new Date().toISOString(),
-        };
-        contacts.push(newContact);
-        localStorage.setItem("divine-yatra-contacts", JSON.stringify(contacts));
+      toast({
+        title: t("contact.toast.successTitle"),
+        description: t("contact.toast.successDesc"),
+        duration: 5000,
+      });
 
-        toast({
-          title: t("contact.toast.successTitle"),
-          description: t("contact.toast.successDesc"),
-          duration: 5000,
-        });
-
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-      }
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error("WhatsApp Error:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again or contact us directly.",
@@ -254,7 +213,7 @@ const Contact = () => {
                         htmlFor="phone"
                         className="block text-sm font-medium text-[#1E2E73] mb-2"
                       >
-                        {t("contact.form.phoneLabel")}
+                        {t("contact.form.phoneLabel")} *
                       </label>
                       <input
                         type="tel"
@@ -262,6 +221,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
+                        required
                         disabled={isSubmitting}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E30613] focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder={t("contact.form.phonePlaceholder")}
